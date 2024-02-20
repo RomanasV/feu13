@@ -1,0 +1,106 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(210, 46%, 95%);
+}
+
+.container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 30px;
+}
+
+.primary-testimonials-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.testimonial-item {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-content {
+  margin-bottom: 0;
+}
+
+.testimonial-author-image {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonial-author-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.testimonial-author-name-wrapper {
+  display: grid;
+}
+
+.testimonial-author-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.testimonial-author-verified {
+  /* opacity: 50%; */
+  opacity: 0.5;
+}
+
+.testimonial-content {
+  opacity: 0.7;
+}
+
+.testimonial-content::before {
+  content: '“';
+}
+
+.testimonial-content::after {
+  content: '”';
+}
+
+.primary-testimonials-wrapper .testimonial-item:first-of-type {
+  background-image: url("images/bg-pattern-quotation.svg");
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 100px);
+}
+
+.primary-testimonials-wrapper .testimonial-item:nth-of-type(4n+1) {
+  background-color: hsl(263, 55%, 52%);
+  color: white;
+  grid-column-end: span 2;
+}
+
+.primary-testimonials-wrapper .testimonial-item:nth-of-type(4n+2) {
+  background-color: hsl(217, 19%, 35%);
+  color: white;
+}
+
+.primary-testimonials-wrapper .testimonial-item:nth-of-type(4n+3) {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.primary-testimonials-wrapper .testimonial-item:nth-of-type(4n+4) {
+  background-color: hsl(219, 29%, 14%);
+  color: white;
+  grid-column-end: span 2;
+}

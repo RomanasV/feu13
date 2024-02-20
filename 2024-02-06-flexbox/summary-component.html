@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Summary Component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="summary-component.css">
+</head>
+<body>
+
+  <div class="content">
+    <div class="card">
+      <div class="result-wrapper">
+        <h2 class="section-title">Your Result</h2>
+
+        <div class="score-wrapper">
+          <span class="score">76</span>
+          <span class="total-score">of 100</span>
+        </div>
+
+        <span class="score-title">Great</span>
+
+        <p class="score-description">You scored higher than 65% of the people who have taken these tests.</p>
+      </div>
+
+      <div class="summary-wrapper">
+        <h2 class="section-title">Summary</h2>
+
+        <div class="categories-list">
+
+          <div class="category-item reaction-item">
+            <div class="item-title-wrapper">
+              <img class="item-title-image" src="images/icon-reaction.svg" alt="">
+              <h3 class="item-title">Reaction</h3>
+            </div>
+
+            <div class="item-stats-wrapper">
+              <span class="item-stat-value">80</span>
+              <span class="item-stat-total"> / 100</span>
+            </div>
+          </div>
+
+          <div class="category-item memory-item">
+            <div class="item-title-wrapper">
+              <img class="item-title-image" src="images/icon-memory.svg" alt="">
+              <h3 class="item-title">Memory</h3>
+            </div>
+
+            <div class="item-stats-wrapper">
+              <span class="item-stat-value">92</span>
+              <span class="item-stat-total"> / 100</span>
+            </div>
+          </div>
+
+          <div class="category-item verbal-item">
+            <div class="item-title-wrapper">
+              <img class="item-title-image" src="images/icon-verbal.svg" alt="">
+              <h3 class="item-title">Verbal</h3>
+            </div>
+
+            <div class="item-stats-wrapper">
+              <span class="item-stat-value">61</span>
+              <span class="item-stat-total"> / 100</span>
+            </div>
+          </div>
+
+          <div class="category-item visual-item">
+            <div class="item-title-wrapper">
+              <img class="item-title-image" src="images/icon-visual.svg" alt="">
+              <h3 class="item-title">Visual</h3>
+            </div>
+
+            <div class="item-stats-wrapper">
+              <span class="item-stat-value">72</span>
+              <span class="item-stat-total"> / 100</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="button">Continue</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

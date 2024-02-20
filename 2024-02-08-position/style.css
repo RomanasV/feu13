@@ -1,0 +1,30 @@
+body {
+  margin-top: 200px;
+  margin-bottom: 5000px;
+}
+
+.container {
+  background-color: bisque;
+  width: 500px;
+  height: 500px;
+
+  position: relative;
+}
+
+.child {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+
+  position: sticky;
+
+  top: 50px;
+  /* left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.child-2 {
+  background-color: blue;
+  height: 150px;
+  width: 150px;
+}

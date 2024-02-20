@@ -1,0 +1,63 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.bg-dark {
+  background-color: black;
+  color: white;
+}
+
+.wrapper {
+  padding: 30px;
+}
+.wrapper.full-width {
+  width: 100%;
+}
+.wrapper.half-width {
+  width: 50%;
+}
+@media screen and (max-width: 800px) {
+  .wrapper.half-width {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .wrapper.half-width {
+    width: 80%;
+  }
+}
+.wrapper.bg-dark {
+  background-color: rgb(44, 44, 44);
+}
+.wrapper h2 {
+  font-size: 40px;
+}
+@media screen and (max-width: 800px) {
+  .wrapper h2 {
+    font-size: 30px;
+  }
+}
+.wrapper h2.color-red {
+  color: rgb(255, 0, 0);
+}
+.wrapper p:not(.empty)::before {
+  content: "- ";
+  color: rgb(255, 0, 0);
+}
+.wrapper p:first-of-type {
+  font-size: 30px;
+}
+.wrapper .box > p {
+  color: rgb(244, 153, 153);
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.box {
+  border: 2px solid green;
+  padding: 30px;
+  margin-bottom: 30px;
+}/*# sourceMappingURL=style.css.map */

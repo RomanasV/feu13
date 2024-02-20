@@ -1,0 +1,32 @@
+.container {
+  background-color: lightgray;
+  height: 500px;
+  width: 500px;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-start;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.child {
+  height: 100px;
+  width: 100px;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+  order: 1;
+  align-self: flex-end;
+}
+
+.red {
+  background-color: red;
+}

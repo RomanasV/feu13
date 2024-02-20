@@ -1,0 +1,157 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(30, 38%, 92%);
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.button {
+  background-color: hsl(224, 30%, 27%);
+  color: white;
+  padding: 15px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.content {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  border-radius: 25px;
+}
+
+.result-wrapper {
+  width: 50%;
+  background: rgb(120,87,255);
+  background: linear-gradient(180deg, rgba(120,87,255,1) 0%, rgba(46,43,233,1) 100%);
+  color: hsl(221, 100%, 96%);
+  text-align: center;
+  padding: 30px 45px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 25px;
+  border-radius: 25px;
+}
+
+.score-wrapper {
+  background: rgb(78,33,202);
+  background: linear-gradient(180deg, rgba(78,33,202,1) 0%, rgba(36,33,202,0.8576680672268908) 100%);
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.score-description {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.score {
+  font-size: 60px;
+  color: white;
+}
+
+.score-title {
+  color: white;
+  font-size: 30px;
+}
+
+.summary-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  width: 50%;
+  padding: 30px;
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.category-item {
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 20px;
+  font-weight: bold;
+}
+
+.reaction-item {
+  background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.memory-item {
+  background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+.verbal-item {
+  background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+.visual-item {
+  background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+.reaction-item .item-title {
+  color: hsl(0, 100%, 67%);
+}
+
+.memory-item .item-title {
+  color: hsl(39, 100%, 56%);
+}
+
+.verbal-item .item-title {
+  color: hsl(166, 100%, 37%);
+}
+
+.visual-item .item-title {
+  color: hsl(234, 85%, 45%);
+}
+
+.item-title-wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.item-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.item-stats-wrapper {
+  width: 80px;
+  text-align: right;
+}
+
+.item-stat-value {
+  color: hsl(224, 30%, 27%);
+  font-weight: 800;
+}
+
+.item-stat-total {
+  color: hsla(224, 30%, 27%, 0.5);
+}

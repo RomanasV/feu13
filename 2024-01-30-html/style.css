@@ -1,0 +1,78 @@
+/* 
+
+CSS sintaksė
+
+selector {
+  property: value;
+}
+
+
+*/
+
+
+h1 {
+  color: blue;
+  background-color: bisque;
+  font-size: 50px;
+}
+
+h4 {
+  color: aqua;
+  background-color: blue;
+}
+
+li {
+  text-transform: uppercase;
+}
+
+ul li {
+  color: blueviolet;
+}
+
+ol li {
+  color: green;
+}
+
+div h5 {
+  color: tomato;
+}
+
+.paragraph {
+  color: orange;
+}
+
+#headings-id {
+  border: 3px solid black;
+}
+
+p span {
+  text-transform: uppercase;
+}
+
+.paragraph span {
+  font-style: italic;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-green {
+  color: green;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+li:first-of-type {
+  font-size: 25px;
+}
+
+[alt] {
+  border: 5px solid green;
+}
+
+[target="_blank"] {
+  text-decoration: line-through;
+}

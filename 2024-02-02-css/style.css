@@ -1,0 +1,98 @@
+h1 {
+  color: #daffe0;
+  background-color: #9c8ec0;
+  font-family: 'Outfit', sans-serif;
+}
+
+p {
+  font-family: 'Young Serif', serif;
+
+  background-color: bisque;
+
+  /* BORDER */
+
+  /* border-top-style: dashed;
+  border-right-style: dotted;
+  border-bottom-style: solid;
+  border-left-style: none; */
+
+  /* border-style: dashed dotted solid none; */
+
+  /* border-top-color: red;
+  border-right-color: green;
+  border-bottom-color: orange;
+  border-left-color: black; */
+
+  /* border-color: red green orange black; */
+
+  /* border-top-width: 10px;
+  border-right-width: 5px;
+  border-bottom-width: 20px;
+  border-left-width: 15px; */
+
+  /* border-width: 10px 5px 20px 15px; */
+
+  /* border-style: solid;
+  border-color: green;
+  border-width: 5px; */
+
+  border: 5px solid green;
+
+
+  /* PADDING */
+
+  /* padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 50px;
+  padding-left: 30px; */
+
+  padding: 10px 20px 50px 30px;
+
+  /* MARGIN */
+  /* margin-top: 50px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  margin-left: 50px; */
+
+  margin: 50px 10px 20px 50px;
+
+  /* BORDER-RADIUS */
+
+  /* border-top-left-radius: 10px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 0; */
+
+  border-radius: 10px 20px 50px 0;
+
+  /* TEXT-TRANSFORM */
+  text-transform: capitalize;
+}
+
+h2 {
+  /* background-color: aqua; */
+  border: 5px solid black;
+
+  margin-left: 50px;
+  padding-top: 50px;
+}
+
+span {
+  /* TEXT-DECORATION */
+
+  /* text-decoration-line: line-through;
+  text-decoration-color: blue;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 3px; */
+
+  text-decoration: line-through blue wavy 3px ;
+}
+
+img {
+  height: 200px;
+  width: 100%;
+
+  /* OBJECT-FIT ir OBJECT-POSITION */
+  object-fit: cover;
+  object-position: 50% 40%;
+}

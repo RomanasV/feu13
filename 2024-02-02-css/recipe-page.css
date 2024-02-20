@@ -1,0 +1,122 @@
+body {
+  background-color: hsl(31, 53%, 90%);
+  font-family: 'Outfit', sans-serif;
+
+  margin-bottom: 500px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Young Serif', serif;
+}
+
+img {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: hsl(24, 5%, 18%);
+}
+
+caption {
+  text-align: start;
+  margin-bottom: 20px;
+}
+
+tbody {
+  line-height: 2.5;
+}
+
+tr {
+  border-bottom: 1px solid hsl(30, 18%, 87%);
+}
+
+tr:last-child {
+  border-bottom: 0;
+}
+
+th {
+  text-align: start;
+  font-weight: normal;
+  padding-left: 20px;
+}
+
+td {
+  font-weight: bold;
+}
+
+ul, ol {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+li::marker {
+  color: hsl(14, 45%, 36%);
+}
+
+ol li::marker {
+  font-weight: bold;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+li span {
+  font-weight: bold;
+}
+
+.section-title {
+  color: hsl(14, 45%, 36%);
+  font-size: 30px;
+}
+
+.border-bottom-gray {
+  border-bottom: 1px solid hsl(30, 18%, 87%);
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+
+.recipe-wrapper {
+  background-color: white;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.recipe-image {
+  border-radius: 10px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.recipe-preparation {
+  background-color: hsl(330, 100%, 98%);
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.recipe-preparation > :first-child {
+  margin-top: 0;
+}
+
+.recipe-preparation > :last-child {
+  margin-bottom: 0;
+}
+
+.recipe-preparation .section-title {
+  color: hsl(332, 51%, 32%);
+  font-size: 20px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.recipe-preparation li::marker {
+  color: hsl(332, 51%, 32%);
+}

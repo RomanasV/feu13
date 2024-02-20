@@ -1,0 +1,92 @@
+@use 'variables';
+@use 'responsive';
+
+.wrapper {
+  padding: variables.$spacing-xl;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.half-width {
+    width: 50%;
+
+    @include responsive.lg {
+      width: 70%;
+    }
+
+    @include responsive.md {
+      width: 80%;
+    }
+  }
+
+  &.bg-dark {
+    background-color: variables.$color-dark;
+  }
+
+  h2 {
+    font-size: 40px;
+
+    @include responsive.lg {
+      font-size: 30px;
+    }
+
+    &.color-red {
+      color: variables.$color-primary;
+    }
+  }
+
+  p {
+    // &::before {
+    //   content: '- ';
+    //   color: variables.$color-primary;
+    // }
+
+    // &.empty::before {
+    //   content: none;
+    // }
+
+    // &.empty {
+    //   &::before {
+    //     content: none;
+    //   }
+    // }
+    
+
+
+    // &:not(.empty)::before {
+    //   content: '- ';
+    //   color: variables.$color-primary;
+    // }
+
+    &:not(.empty) {
+      &::before {
+        content: '- ';
+        color: variables.$color-primary;
+      }
+    }
+
+    &:first-of-type {
+      font-size: 30px;
+    }
+  }
+
+  .box {
+    & > p {
+      color: rgb(244, 153, 153);
+    }
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 400px) {
+
+}

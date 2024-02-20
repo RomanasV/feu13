@@ -1,0 +1,84 @@
+:root {
+  --color-primary: rgb(255, 0, 0);
+  --color-secondary: green;
+  --color-black: black;
+  --color-white: white;
+  --color-dark: rgb(44, 44, 44);
+  /* --spacing-1: 5px;
+  --spacing-2: 10px;
+  --spacing-3: 15px;
+  --spacing-4: 20px;
+  --spacing-5: 30px; */
+
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 30px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.bg-dark {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.wrapper {
+  padding: var(--spacing-xl);
+}
+
+.wrapper.full-width {
+  width: 100%;
+}
+
+.wrapper.half-width {
+  width: 50%;
+}
+
+.wrapper.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.wrapper h2 {
+  font-size: 40px;
+}
+
+.wrapper h2.color-red {
+  color: var(--color-primary);
+}
+
+/* .wrapper p::before {
+  content: '- ';
+  color: var(--color-primary);
+}
+
+.wrapper p.empty::before {
+  content: none;
+} */
+
+.wrapper p:not(.empty)::before {
+  content: '- ';
+  color: var(--color-primary);
+}
+
+.wrapper p:first-of-type {
+  font-size: 30px;
+}
+
+.wrapper .box > p {
+  color: rgb(244, 153, 153);
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.box {
+  border: 2px solid var(--color-secondary);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
