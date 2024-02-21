@@ -133,6 +133,80 @@ fieldset {
   }
 }
 
+.color-secondary {
+  color: $color-secondary;
+}
+
+.color-black {
+  color: $color-black;
+}
+
+.page-title-wrapper {
+  margin-bottom: 30px;
+
+  .page-title {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .page-title-banner {
+    display: flex;
+    background-color: $color-white;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: $color-black;
+    padding: 30px;
+    font-size: 24px;
+    font-weight: bold;
+
+    &::after {
+      content: url("images/arrow-right-blue.svg");
+    }
+
+    .page-title-banner-content {
+      display: flex;
+      flex-direction: column;
+      gap: 7px 10px;
+
+      @include responsive.xl {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .page-title-banner-link {
+    position: relative;
+    display: block;
+
+    &::after {
+      content: url("images/arrow-right-blue.svg");
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      transform: translateY(-50%);
+      
+      @include responsive.xl {
+        top: 50%;
+      }
+    }
+
+    .page-title-banner-mobile {
+      @include responsive.xl {
+        display: none;
+      }
+    }
+  
+    .page-title-banner-desktop {
+      display: none;
+  
+      @include responsive.xl {
+        display: block;
+      }
+    }
+  }
+}
+
 .page-content {
   display: flex;
   flex-direction: column;
@@ -230,7 +304,15 @@ fieldset {
         gap: 7px 25px;
 
         .program-item-feature {
+          display: flex;
+          align-items: flex-start;
+          column-gap: 8px;
 
+          .program-item-feature-image {
+            height: 15px;
+            width: 15px;
+            object-fit: contain;
+          }
         }
       }
     }
