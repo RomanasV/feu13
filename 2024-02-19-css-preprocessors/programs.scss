@@ -150,15 +150,27 @@ fieldset {
   }
 
   .page-title-banner {
-    display: flex;
     background-color: $color-white;
+    background-image: url("images/Mobile_banner_updated.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    display: flex;
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
     color: $color-black;
-    padding: 30px;
+    padding: 30px 30px 250px;
     font-size: 24px;
     font-weight: bold;
+
+    @include responsive.xl {
+      background-size: 40%;
+      background-repeat: no-repeat;
+      background-position: 85% 75%;
+      padding-bottom: 30px;
+    }
 
     &::after {
       content: url("images/arrow-right-blue.svg");
@@ -232,6 +244,9 @@ fieldset {
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+
+    position: sticky;
+    top: 20px;
 
     .filter-result {
       font-size: 25px;

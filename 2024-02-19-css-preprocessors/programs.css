@@ -123,15 +123,27 @@ fieldset .form-control label {
   font-weight: bold;
 }
 .page-title-wrapper .page-title-banner {
-  display: flex;
   background-color: white;
+  background-image: url("images/Mobile_banner_updated.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
   color: black;
-  padding: 30px;
+  padding: 30px 30px 250px;
   font-size: 24px;
   font-weight: bold;
+}
+@media screen and (min-width: 1000px) {
+  .page-title-wrapper .page-title-banner {
+    background-size: 40%;
+    background-repeat: no-repeat;
+    background-position: 85% 75%;
+    padding-bottom: 30px;
+  }
 }
 .page-title-wrapper .page-title-banner::after {
   content: url("images/arrow-right-blue.svg");
@@ -203,6 +215,8 @@ fieldset .form-control label {
   display: flex;
   flex-direction: column;
   row-gap: 15px;
+  position: sticky;
+  top: 20px;
 }
 .filter-wrapper .filter-form .filter-result {
   font-size: 25px;
