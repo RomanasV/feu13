@@ -1,1 +1,215 @@
-/*# sourceMappingURL=programs.css.map */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.button {
+  padding: 13px 30px 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+}
+.button.button-primary {
+  border-color: #1200ff;
+}
+.button.button-primary.button-outline {
+  color: #1200ff;
+  background-color: transparent;
+}
+.button.button-primary.button-fill {
+  background-color: #1200ff;
+  color: white;
+}
+.button.button-secondary {
+  border-color: #ff00e9;
+}
+.button.button-secondary.button-outline {
+  color: #ff00e9;
+  background-color: transparent;
+}
+.button.button-secondary.button-fill {
+  background-color: #ff00e9;
+  color: white;
+}
+.button.button-danger {
+  border-color: red;
+}
+.button.button-danger.button-outline {
+  color: red;
+  background-color: transparent;
+}
+.button.button-danger.button-fill {
+  background-color: red;
+  color: white;
+}
+.button.button-round {
+  border-radius: 50px;
+}
+.button.button-large {
+  font-size: 30px;
+  padding: 18px 35px 16px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+}
+.form-control label {
+  font-size: 18px;
+  font-weight: bold;
+}
+.form-control select {
+  background-color: #dcdcdc;
+  border-color: #dcdcdc;
+  padding: 13px 20px 11px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin-left: 0;
+}
+fieldset legend {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: 5px;
+}
+fieldset .form-control {
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+fieldset .form-control:last-of-type {
+  margin-bottom: 0;
+}
+fieldset .form-control label {
+  font-weight: normal;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+@media screen and (min-width: 1000px) {
+  .page-content {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .filter-wrapper {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .filter-wrapper {
+    width: 30%;
+  }
+}
+.filter-wrapper .filter-form {
+  background-color: white;
+  padding: 45px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.filter-wrapper .filter-form .filter-result {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.programs-wrapper {
+  display: grid;
+  gap: 30px;
+}
+@media screen and (min-width: 800px) {
+  .programs-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .programs-wrapper {
+    width: 60%;
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .programs-wrapper {
+    width: 70%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.programs-wrapper .program-item {
+  background-color: white;
+  padding: 40px 40px 25px;
+  position: relative;
+}
+.programs-wrapper .program-item a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.programs-wrapper .program-item .program-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 20px;
+}
+.programs-wrapper .program-item .program-item-content .program-item-image {
+  height: 97px;
+  width: auto;
+}
+.programs-wrapper .program-item .program-item-content .program-item-title {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.programs-wrapper .program-item .program-item-content .program-item-description {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.programs-wrapper .program-item .program-item-features .program-item-features-list {
+  list-style-type: none;
+  padding-left: 0;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 25px;
+}
+.programs-wrapper .program-item .program-item-extras {
+  background-color: #ff00e9;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: absolute;
+  top: 20px;
+  right: -15px;
+  text-align: center;
+  max-width: 50%;
+}/*# sourceMappingURL=programs.css.map */
