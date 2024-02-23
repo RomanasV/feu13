@@ -1,0 +1,46 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 0 500px 0;
+}
+
+.container {
+  width: 80%;
+  background-color: blanchedalmond;
+
+  /* vh - viewport height - procentinė išraiška nuo ekrano aukščio */
+  min-height: 50vh;
+
+  font-size: 20px;
+}
+
+h2 {
+  margin-top: 0;
+  background-color: aquamarine;
+  
+  /* width: 50%; */
+
+  /* vw - viewport width - procentinė išraiška nuo ekrano pločio */
+  width: 50vw;
+
+  font-size: 2em;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* html {
+  font-size: 20px;
+} */
+
+/* :root {
+  font-size: 20px;
+} */
+
+button {
+  font-size: 1em;
+  padding: 1rem;
+}
