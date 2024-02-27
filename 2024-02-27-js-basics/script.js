@@ -31,3 +31,11 @@ console.log(pavarde)
 console.log(amzius)
 amzius = 31
 console.log(amzius)
+
+console.log('Hello, ' + vardas + ' ' + pavarde + '.')
+console.log("Hello, " + vardas + " " + pavarde + ".")
+console.log(`Hello, ${vardas} ${pavarde}.`)
+
+
+// John Doe (amžius 25 m.), asmens kodas: 37878787878, gyvenamasis miestas: Kaunas.
+console.log('John Doe (amžius 25 m.), asmens kodas: 37878787878, gyvenamasis miestas: Kaunas.')
