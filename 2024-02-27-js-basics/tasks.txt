@@ -1,0 +1,14 @@
+1. Sukurkite kodą, kuris palygina du tekstus (kintamuosius) ir išspausdina rezultatą, ar jie yra lygūs.
+
+2. Turite du kintamuosius (num ir text), jų reikšmės atitinkamai yra 10 ir "10". Sukurkite tris skirtingus palygimus ir išveskite juos į konsolę. Rezultatas turėtų būti:
+- false
+- true 
+- false
+
+3. Sukurkite du kintamuosius - currentBalance ir transaction. Palyginkite juos ir išveskite ar užtenka balanso atlikti operacijai.
+  3.1. currentBalance1 - 50, transaction1 - -50, rezultatas - true
+  3.2. currentBalance2 - 50, transaction2 - 50, rezultatas - true
+  3.3. currentBalance3 - 50, transaction3 - -51, rezultatas - false
+  3.4. currentBalance4  - 50, transaction4 - 51, rezultatas - true
+
+4. Patikrinkite ar du pasirinkti skaičiai (kintamieji) dalinasi be liekanos. Rezultatą išveskite į konsolę.
