@@ -276,3 +276,6 @@ if (personAge < 18) {
 } else {
   console.log('Pirkti gali')
 }
+
+let age = prompt('Enter your age')
+console.log(age)
