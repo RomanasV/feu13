@@ -354,3 +354,9 @@ let correctAnswer22 = 1
 
 let playerAnswer21 = 577
 let playerAnswer22 = 1
+
+
+let isLoggedIn = true
+let userName = 'John'
+let time = 20
+let isBirthday = true
