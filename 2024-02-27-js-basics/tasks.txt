@@ -36,3 +36,19 @@ SLAPTAŽODIS:
 
 3. Jeigu slaptažodis neturi grotažymių (#), tai parašyti: „Slaptažodis privalo turėti grotažymes"
 
+
+AMŽIUS
+Pagal amžiu surašyti į kurią klasė eina mokinys:
+1. Iki 6 metų į mokyklą neina.
+2. 7-10 metų eina į pradinę klasę.
+3. 11-14 metų eina į pagrindinę.
+4. 15-18 metų eina į gimnaziją.
+5. 19+ mokyklą baigė.
+
+6.1. Jeigu amžius yra mažiau nei 0, tai parašyti jog įvestas amžius yra per mažas.
+6.2. Jeigu amžius yra daugau nei 120, tai parašyti jog įvestas amžius yra per didelis.
+
+7.1. Jeigu amžius yra 6 metai, tai parašyti: "Į mokyklą tikriausiai neina, tačiau gali būti ir pirmokas."
+7.2. Jeigu amžius yra 10 metai, tai parašyti: "Tikriausiai mokosi pradinėje, tačiau gali būti ir penktokas."
+7.3. Jeigu amžius yra 14 metai, tai parašyti: "Tikriausiai mokosi pagrindinėje, tačiau gali būti ir devintokas."
+7.4. Jeigu amžius yra 18 metai, tai parašyti: "Tikriausiai mokosi gimnazijoje, tačiau mokyklą gali būti ir baigęs."
