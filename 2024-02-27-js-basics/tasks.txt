@@ -12,3 +12,27 @@
   3.4. currentBalance4  - 50, transaction4 - 51, rezultatas - true
 
 4. Patikrinkite ar du pasirinkti skaičiai (kintamieji) dalinasi be liekanos. Rezultatą išveskite į konsolę.
+
+
+
+
+5. Sukurk variable 'legalAge', kuris būtų lygus 20. Antra variable 'clientAge' su bet kokiu skaičiumi. Pasirašyk if-else, kuris į konsolę išmestų ar klientas jau pasiekęs šį legalAge, ar dar ne.
+
+6. Pasirašyk kintamą su savo vardu. Sukurk if-else, kuris pasakys "Ilgas vardas", jei tavo vardas ilgesnis nei 6 raidės. Kitu atveju, nieko neišmes. String ilgį gali susižinoti prirašant 'length' property (pvz.: "Petras".length arba su kintamu: name.length).
+
+7. Sukurt kintamąjį su savo amžiumi. Patikrink: jei amžius didesnis nei 100, arba mažesnis nei 0 - tegul išmeta "Invalid age"; jei tarp 1 ir 18 - "Child"; jei tarp 19 ir 99 - "Adult".
+ 
+8.Sukurk variable 'car', kuris bus lygus kažkokiam automobilio prekės ženklui. Sukurk if-else, kuris pasakys ar tas brand'as priklauso VW Group, ar BMW Group, ar nei vienam.
+VW group priklauso: VW, Audi, Bentley, Bugatti, Lamborghini, Porsche.
+BMW group priklauso: BMW, Mini, Rolls-Royce.
+
+
+
+SLAPTAŽODIS:
+1. Jeigu slaptažodis yra trumpesnis už 16 simbolių, tai parašyti jog „Slaptažodis yra per trumpas. Jis privalo būti bent 16 simbolių ilgumo."
+2. Jeigu slaptažodis yra ilgesnis už 15 simbolių, tai:
+2.1. Patikrinti ar jis yra ilgesnis už 20 simbolių. Jeigu ilgesnis, tai parašyti: „Slaptažodis tinkamas".
+2.2. Jeigu jis nėra ilgesnis už 20 simbolių, tai parašyti jog: „Slaptažodis yra tinkamas. Tačiau rekomenduojama jog jis būtų bent 21 simbolio ilgumo."
+
+3. Jeigu slaptažodis neturi grotažymių (#), tai parašyti: „Slaptažodis privalo turėti grotažymes"
+

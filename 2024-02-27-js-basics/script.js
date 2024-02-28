@@ -154,7 +154,8 @@ console.log(!false) // true
 console.log(!!false) // false
 
 // IF, ELSE IF, ELSE
-let light = 'green'
+let originalLight = 'Green'
+let light = originalLight.toLowerCase()
 
 console.log(light)
 
@@ -168,3 +169,110 @@ if (light === 'green') {
   console.log('Sugedo :(')
 }
 
+
+let letter1 = 'a' 
+let letter2 = 'b'
+
+// AND operator - &&
+if (letter1 === 'a' && letter2 === 'b') {
+  console.log('Pirma raidė yra a ir antra raidė yra b')
+} else {
+  console.log('Pirma raidė nėra a arba antra raidė nėra b')
+}
+
+// OR operator - ||
+if (letter1 === 'a' || letter2 === 'b') {
+  console.log('Pirma raidė yra a arba antra raidė yra b')
+} else {
+  console.log('Pirma raidė nėra a ir antra raidė nėra b')
+}
+
+let personAge = 17
+
+if (personAge >= 18) {
+  console.log('Pirkti gali')
+} else {
+  console.log('Pirkti negali')
+}
+
+if (personAge < 18) {
+  console.log('Pirkti negali')
+} else {
+  console.log('Pirkti gali')
+}
+
+if (personAge > 17) {
+  console.log('Pirkti gali')
+} else {
+  console.log('Pirkti negali')
+}
+
+if (personAge <= 17) {
+  console.log('Pirkti negali')
+} else {
+  console.log('Pirkti gali')
+}
+
+
+personAge = 15
+
+// if (personAge < 16) {
+//   console.log('Pirkti negali')
+// } else if (personAge >= 16 && personAge < 18) {
+//   console.log('Galima pirkti su tėvų sutikimu')
+// } else {
+//   console.log('Pirkti gali')
+// }
+
+if (personAge < 16) {
+  console.log('Pirkti negali')
+} else if (personAge < 18) {
+  console.log('Galima pirkti su tėvų sutikimu')
+} else {
+  console.log('Pirkti gali')
+}
+
+if (personAge >= 18) {
+  console.log('Pirkti gali')
+} else if (personAge >= 16) {
+  console.log('Galima pirkti su tėvų sutikimu')
+} else {
+  console.log('Pirkti negali')
+}
+
+
+// Nesting
+if (personAge >= 18) {
+  console.log('Pirkti gali')
+} else {
+
+  // if (personAge < 16) {
+  //   console.log('Pirkti negali')
+  // } else {
+  //   console.log('Galima pirkti su tėvų sutikimu')
+  // }
+
+  if (personAge >= 16) {
+    console.log('Galima pirkti su tėvų sutikimu')
+  } else {
+    console.log('Pirkti negali')
+  }
+
+}
+
+
+if (personAge < 18) {
+  // if (personAge < 16) {
+  //   console.log('Pirkti negali')
+  // } else {
+  //   console.log('Galima pirkti su tėvų sutikimu')
+  // }
+
+  if (personAge >= 16) {
+    console.log('Galima pirkti su tėvų sutikimu')
+  } else {
+    console.log('Pirkti negali')
+  }
+} else {
+  console.log('Pirkti gali')
+}
