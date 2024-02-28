@@ -286,7 +286,10 @@ if (personAge < 18) {
 
 // 3. Jeigu slaptažodis neturi grotažymių (#), tai parašyti: „Slaptažodis privalo turėti grotažymes"
 
-let password = 'fsdfsdgflkjsakl'
+// let password = '                       #fsdsdfsdfsdfsdf        '.trimStart().trimEnd()
+
+let originalPassword = '                       #fsdsd        '
+let password = originalPassword.trim()
 let passLength = password.length
 console.log(password)
 console.log(!password.includes('#'))
