@@ -279,3 +279,17 @@ if (personAge < 18) {
 
 let age = prompt('Enter your age')
 console.log(age)
+
+// Kiek bus 123 + 456
+let correctAnswer11 = 579 
+let correctAnswer12 = 1
+
+let playerAnswer11 = 577
+let playerAnswer12 = 1
+
+
+let correctAnswer21 = 1 
+let correctAnswer22 = 1
+
+let playerAnswer21 = 577
+let playerAnswer22 = 1
