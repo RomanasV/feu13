@@ -419,23 +419,75 @@ if (correctAnswer21 === playerAnswer21 && correctAnswer22 === playerAnswer22) {
   console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi.')
 }
 
+// TREČIAS LYGIS: 
+// 1. Trys klausimai ir į kitą lygį pereinama, jeigu atsakomi bent du klausimai.
+// 2. Jeigu atsakomi du klausimai, turi būti parodoma, kuris klausimas buvo neatsakytas.
+// 3. Jeigu atsakomi mažiau nei du klausimai, tai turi parodyti, kuris klausimas buvo atsakytas.
 
+// patenkama i kita lygi:    1 1 1
+// patenkama i kita lygi:    1 1 0
+// patenkama i kita lygi:    1 0 1
+// patenkama i kita lygi:    0 1 1
 
+// nepatenkama i kita lygi:  1 0 0
+// nepatenkama i kita lygi:  0 1 0
+// nepatenkama i kita lygi:  0 0 1
+// nepatenkama i kita lygi:  0 0 0
 
+let correctAnswer31 = 1
+let correctAnswer32 = 1
+let correctAnswer33 = 1
 
+let playerAnswer31 = 1
+let playerAnswer32 = 1
+let playerAnswer33 = 1
 
+let answer31 = correctAnswer31 === playerAnswer31
+let answer32 = correctAnswer32 === playerAnswer32
+let answer33 = correctAnswer33 === playerAnswer33
 
+let successMessage = 'Patekai i kita lygi: '
+let failMessage = 'Nepatekai i kita lygi: '
 
+let output3 = ''
 
+// if (correctAnswer31 === playerAnswer31 && correctAnswer32 === playerAnswer32 && correctAnswer33 === playerAnswer33) {
+//   console.log('Patekai i kita lygi: visi atsakymai teisingi.')
+// } else if (correctAnswer31 === playerAnswer31 && correctAnswer32 === playerAnswer32) {
+//   console.log('Patekai i kita lygi: bet trečias atsakymas buvo neteisingas.')
+// } else if (correctAnswer31 === playerAnswer31 && correctAnswer33 === playerAnswer33) {
+//   console.log('Patekai i kita lygi: bet antras atsakymas buvo neteisingas.')
+// } else if (correctAnswer32 === playerAnswer32 && correctAnswer33 === playerAnswer33) {
+//   console.log('Patekai i kita lygi: bet pirmas atsakymas buvo neteisingas.')
+// } else if (correctAnswer31 === playerAnswer31) {
+//   console.log('Nepatekai i kita lygi: bet pirmas atsakymas buvo teisingas.')
+// } else if (correctAnswer32 === playerAnswer32) {
+//   console.log('Nepatekai i kita lygi: bet antras atsakymas buvo teisingas.')
+// } else if (correctAnswer33 === playerAnswer33) {
+//   console.log('Nepatekai i kita lygi: bet trecias atsakymas buvo teisingas.')
+// } else {
+//   console.log('Nepatekai i kita lygi: visi atsakymai buvo neteising :(')
+// }
 
+if (answer31 && answer32 && answer33) {
+  output3 = successMessage + 'visi atsakymai teisingi.'
+} else if (answer31 && answer32) {
+  output3 = successMessage + 'bet trečias atsakymas buvo neteisingas.'
+} else if (answer31 && answer33) {
+  output3 = successMessage + 'bet antras atsakymas buvo neteisingas.'
+} else if (answer32 && answer33) {
+  output3 = successMessage + 'bet pirmas atsakymas buvo neteisingas.'
+} else if (answer31) {
+  output3 = failMessage + 'bet pirmas atsakymas buvo teisingas.'
+} else if (answer32) {
+  output3 = failMessage + 'bet antras atsakymas buvo teisingas.'
+} else if (answer33) {
+  output3 = failMessage + 'bet trecias atsakymas buvo teisingas.'
+} else {
+  output3 = failMessage + 'visi atsakymai buvo neteising :('
+}
 
-
-
-
-
-
-
-
+console.log(output3)
 
 
 let isLoggedIn = true
