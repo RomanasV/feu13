@@ -320,40 +320,122 @@ if (!password.includes('#')) {
   console.log('Slaptažodis tinkamas')
 }
 
+// AMŽIUS
+// Pagal amžiu surašyti į kurią klasė eina mokinys:
+// 1. Iki 6 metų į mokyklą neina.
+// 2. 7-10 metų eina į pradinę klasę.
+// 3. 11-14 metų eina į pagrindinę.
+// 4. 15-18 metų eina į gimnaziją.
+// 5. 19+ mokyklą baigė.
 
+// 6.1. Jeigu amžius yra mažiau nei 0, tai parašyti jog įvestas amžius yra per mažas.
+// 6.2. Jeigu amžius yra daugau nei 120, tai parašyti jog įvestas amžius yra per didelis.
 
+// 7.1. Jeigu amžius yra 6 metai, tai parašyti: "Į mokyklą tikriausiai neina, tačiau gali būti ir pirmokas."
+// 7.2. Jeigu amžius yra 10 metai, tai parašyti: "Tikriausiai mokosi pradinėje, tačiau gali būti ir penktokas."
+// 7.3. Jeigu amžius yra 14 metai, tai parašyti: "Tikriausiai mokosi pagrindinėje, tačiau gali būti ir devintokas."
+// 7.4. Jeigu amžius yra 18 metai, tai parašyti: "Tikriausiai mokosi gimnazijoje, tačiau mokyklą gali būti ir baigęs."
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 8. Jeigu įvestas ne amžius (t.y. ne skaičius), tai parašyti: "Netinkamai nurodytas amžius, amžius privalo būti skaičius."
+// 9. Panaudoti prompt funkciją amžiui įvesti.
 
 // let age = prompt('Enter your age')
-// console.log(age)
+let age = '15'
 
-// Kiek bus 123 + 456
-let correctAnswer11 = 579 
+if (isNaN(age)) {
+  console.log('Amžius privalo būti skaičius.')
+} else if (age < 0) {
+  console.log('Nurodytas amžius yra per mažas. Jis privalo būti 0 arba daugiau.')
+} else if (age < 6) {
+  console.log('Į mokyklą neina')
+} else if (age < 7) {
+  console.log('Į mokyklą tikriausiai neina, tačiau gali būti ir pirmokas.')
+} else if (age < 10) {
+  console.log('Pradinė')
+} else if (age < 11) {
+  console.log('Tikriausiai mokosi pradinėje, tačiau gali būti ir penktokas.')
+} else if (age < 14) {
+  console.log('Pagrindinė')
+} else if (age < 15) {
+  console.log('Tikriausiai mokosi pagrindinėje, tačiau gali būti ir devintokas.')
+} else if (age < 18) {
+  console.log('Gimnazija')
+} else if (age < 19) {
+  console.log('Tikriausiai mokosi gimnazijoje, tačiau mokyklą gali būti ir baigęs.')
+} else if (age < 120) {
+  console.log('Mokyklą baigė')
+} else {
+  console.log('Nurodytas amžius yra per mažas. Jis negali būti didesnis už 120.')
+}
+
+// GALVOSŪKIS: sukurti galvosūkį su keletu klausimu
+// PIRMAS LYGIS:
+// 1. Norint patekti į kitą lygį, reikia atsakyti bent į vieną klausimą iš dviejų:
+// 2. Jeigu atsakytas tik vienas klausimas, tai papildomai reikia parašyti kuris klausimas buvo neteisingas.
+
+// 1. Patekai i kita lygi: abu atsakymai teisingi.
+// 2. Patekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.
+// 3. Patekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.
+// 4. Nepatekai i kita lygi: abu atsakymai buvo neteisingi.
+
+let correctAnswer11 = 1 
 let correctAnswer12 = 1
 
-let playerAnswer11 = 577
-let playerAnswer12 = 1
+let playerAnswer11 = 1
+let playerAnswer12 = 0
 
+if (correctAnswer11 === playerAnswer11 && correctAnswer12 === playerAnswer12) {
+  console.log('Patekai i kita lygi: abu atsakymai teisingi.')
+} else if (correctAnswer11 === playerAnswer11) {
+  console.log('Patekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.')
+} else if (correctAnswer12 === playerAnswer12) {
+  console.log('Patekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.')
+} else {
+  console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi.')
+}
+
+// ANTRAS LYGIS:
+// 1. Norint patekti į kitą lygį, reikia atsakyti į abu klausimus iš dviejų:
+// 2. Jeigu atsakytas tik vienas klausimas, tai papildomai reikia parašyti kuris atsakymas buvo neteisingas.
+
+// 1. Patekai i kita lygi: abu atsakymai teisingi.
+// 2. Nepatekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.
+// 3. Nepatekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.
+// 4. Nepatekai i kita lygi: abu atsakymai buvo neteisingi.
 
 let correctAnswer21 = 1 
 let correctAnswer22 = 1
 
 let playerAnswer21 = 577
 let playerAnswer22 = 1
+
+if (correctAnswer21 === playerAnswer21 && correctAnswer22 === playerAnswer22) {
+  console.log('Patekai i kita lygi: abu atsakymai teisingi.')
+} else if (correctAnswer21 === playerAnswer21) {
+  console.log('Nepatekai i kita lygi: antras atsakymas buvo neteisingas, o pirmas buvo teisingas.')
+} else if (correctAnswer22 === playerAnswer22) {
+  console.log('Nepatekai i kita lygi: pirmas atsakymas buvo neteisingas, o antras buvo teisingas.')
+} else {
+  console.log('Nepatekai i kita lygi: abu atsakymai buvo neteisingi.')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 let isLoggedIn = true
