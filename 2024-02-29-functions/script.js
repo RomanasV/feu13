@@ -10,16 +10,16 @@
 // 9. 10 ilgis ir 60 plotis.
 // 10. 10 ilgis ir 120 plotis.
 
-console.log('- ' + (10 + 10) * 2 + ' cm.')
-console.log('- ' + (10 + 25) * 2 + ' cm.')
-console.log('- ' + (10 + 30) * 2 + ' cm.')
-console.log('- ' + (10 + 35) * 2 + ' cm.')
-console.log('- ' + (10 + 40) * 2 + ' cm.')
-console.log('- ' + (10 + 45) * 2 + ' cm.')
-console.log('- ' + (10 + 50) * 2 + ' cm.')
-console.log('- ' + (10 + 55) * 2 + ' cm.')
-console.log('- ' + (10 + 60) * 2 + ' cm.')
-console.log('- ' + (10 + 120) * 2 + ' cm.')
+// console.log('- ' + (10 + 10) * 2 + ' cm.')
+// console.log('- ' + (10 + 25) * 2 + ' cm.')
+// console.log('- ' + (10 + 30) * 2 + ' cm.')
+// console.log('- ' + (10 + 35) * 2 + ' cm.')
+// console.log('- ' + (10 + 40) * 2 + ' cm.')
+// console.log('- ' + (10 + 45) * 2 + ' cm.')
+// console.log('- ' + (10 + 50) * 2 + ' cm.')
+// console.log('- ' + (10 + 55) * 2 + ' cm.')
+// console.log('- ' + (10 + 60) * 2 + ' cm.')
+// console.log('- ' + (10 + 120) * 2 + ' cm.')
 
 // DRY - Don't Repeat Yourself
 
@@ -60,3 +60,19 @@ helloWithName('John', 'Doe')
 helloWithName('Peter')
 helloWithName()
 
+function getPerimeter(length, width) {
+  if (length > 0 && width > 0) { 
+    let perimeter = (length + width) * 2
+    let output = 'Perimetras: ' + perimeter + ' cm.'
+    console.log(output)
+  } else {
+    console.log('Ilgis ir plotis privalo bŪti teigiami skaičiai.')
+  }
+}
+
+getPerimeter(10, 10)
+getPerimeter(10, 20)
+getPerimeter(10, 25)
+getPerimeter()
+getPerimeter(15)
+getPerimeter(333, -5)
