@@ -5,10 +5,10 @@
 function humanToDogYears(humanYears) {
   let dogYears = humanYears * 7
   let output = `${humanYears} žmogaus metai yra ${dogYears} šuns metai.`
-  console.log(output)
+  return output
 }
 
-humanToDogYears(10)
+console.log(humanToDogYears(10))
 
 // 2. Funkciją, kuri skaičiuoja per kiek laiko reikia perskaityti knygą, kad pasiekti užsibrėžtą knygų per metaus skaičių:
 // 2.1. Funkcija priima vieną parametrą: norimų per metus perskaityti knygų skaičių.
