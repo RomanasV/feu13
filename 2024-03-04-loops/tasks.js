@@ -1,13 +1,13 @@
 // Sukurti funkcijas, kurios paleidžia ciklą su skaičiais nuo 1 iki 100. Šie ciklai:
 
 // 1. Padaugina skaičių iš 2.
-function task1() {
-  for (let i = 1; i <= 100; i++) {
+function task1(start = 1, end = 100, nth = 1) {
+  for (let i = start; i <= end; i += nth) {
     console.log(i * 2)
   }
 }
 
-// task1()
+task1(10, 50, 5)
 
 // 2. Padaugina skaičių iš 5.
 function task2() {
@@ -112,14 +112,50 @@ function task25() {
 
 // task25()
 
-function task26() {
-  for (let i = 100; i > 0; i--) {
-    // console.log(Math.pow(i, 3))
 
+// 9. Papildyti funkcijas, jog jos priimtu šiuos argumentus:
+// 9.1. Nusakytų nuo kokio skaičiaus prasidės ciklas.
+// 9.2. Nusakytų iki kokio skaičiaus veiks ciklas.
+// 9.3. Nusakytų kas kelinto ciklo metu turi išvesti atsakymą į konsolę.
+
+// function task26(start, end, nth) {
+//   for (let i = start; i >= end; i--) {
+//     if (i % nth === 0) {
+//       let answer = Math.pow(i, 3)
+//       let output = `${i} ** 3 = ${answer}`
+//       console.log(output)
+//     }
+//   }
+// }
+
+function task26(start, end, nth) {
+  for (let i = start; i >= end; i = i - nth) {
     let answer = Math.pow(i, 3)
     let output = `${i} ** 3 = ${answer}`
     console.log(output)
   }
 }
 
-task26(500, 450, 10)
+// task26(100, 1, 10)
+
+// let num = 5
+// console.log(num)
+
+// console.log(num + 1)
+
+// console.log(num)
+
+// num = num + 1
+// console.log(num)
+
+// num = num + 10
+// console.log(num)
+
+// num += 1
+// console.log(num)
+
+// num += 10
+// console.log(num)
+
+// num++
+// console.log(num)
