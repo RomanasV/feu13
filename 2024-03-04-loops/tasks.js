@@ -54,4 +54,72 @@ function task6() {
   }
 }
 
-task6()
+// task6()
+
+// 7. Sukurti analogiškas funkcijas pirmoms užduotims, tačiau padaryti, jog ciklai skaičiuotųsi nuo 100 iki 1.
+
+function task21() {
+  for (let i = 100; i > 0; i--) {
+    let answer = i * 2
+    let output = `${i} * 2 = ${answer}`
+    console.log(output)
+  }
+}
+
+// task21()
+
+function task22() {
+  for (let i = 100; i > 0; i--) {
+    let answer = i * 5
+    let output = `${i} * 5 = ${answer}`
+    console.log(output)
+  }
+}
+
+// task22()
+
+function task23() {
+  for (let i = 100; i > 0; i--) {
+    let answer = i + 5
+    let output = `${i} + 5 = ${answer}`
+    console.log(output)
+  }
+}
+
+// task23()
+
+function task24() {
+  for (let i = 100; i > 0; i--) {
+    let answer = i - 2
+    let output = `${i} - 2 = ${answer}`
+    console.log(output)
+  }
+}
+
+// task24()
+
+function task25() {
+  for (let i = 100; i > 0; i--) {
+    // console.log(i * i)
+    // console.log(i**2)
+    // console.log(Math.pow(i, 2))
+
+    let answer = Math.pow(i, 2)
+    let output = `${i} ** 2 = ${answer}`
+    console.log(output)
+  }
+}
+
+// task25()
+
+function task26() {
+  for (let i = 100; i > 0; i--) {
+    // console.log(Math.pow(i, 3))
+
+    let answer = Math.pow(i, 3)
+    let output = `${i} ** 3 = ${answer}`
+    console.log(output)
+  }
+}
+
+task26(500, 450, 10)
