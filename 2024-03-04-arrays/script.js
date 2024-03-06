@@ -158,3 +158,61 @@ console.log(slicedCountries12)
 
 let slicedCountries13 = countries.slice(4, 2)
 console.log(slicedCountries13)
+
+// FILTER
+let originalNums = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+console.log(originalNums);
+
+let filteredArray1 = []
+
+for (let i = 0; i < originalNums.length; i++) {
+  if (originalNums[i] > 5) {
+    filteredArray1.push(originalNums[i])
+  }
+}
+
+console.log(filteredArray1)
+
+// let filteredArray2 = originalNums.filter(function(num, index, originalArr) {
+//   console.log(num, index, originalArr)
+// })
+
+let filteredArray2 = originalNums.filter(function(num) {
+  // console.log(num)
+  // console.log(num > 5)
+  return num > 5
+})
+
+console.log(filteredArray2)
+
+let filteredArray3 = originalNums.filter(function(num) {
+  return num > 4 && num <= 8
+})
+
+console.log(filteredArray3)
+
+let filteredArray4 = originalNums.filter(function(num) {
+  return num > 4 && num <= 8 && num % 2 === 0
+})
+
+console.log(filteredArray4)
+
+let filteredArray5 = originalNums.filter(function(num) {
+  // return num > 4 && num <= 8 && num % 2 === 0
+
+  if (num > 4 && num <= 8 && num % 2 === 0) {
+    return true
+  } else {
+    return false
+  }
+})
+
+console.log(filteredArray5)
+
+let stringsArr = ['vienas', 'du', 'trys', 'keturi', 'vienuolika']
+
+let filteredStrings = stringsArr.filter(function(str) {
+  return str.length > 4 && str[0] === 'v'
+})
+
+console.log(filteredStrings)
