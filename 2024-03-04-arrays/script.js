@@ -262,4 +262,3 @@ numsArr.forEach(num => {
 numsArr.map(num => {
   console.log(num * num)
 })
-
