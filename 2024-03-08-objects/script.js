@@ -88,7 +88,12 @@ let studentObj = {
     city: 'Vilnius',
     street: 'Vilniaus st.',
   },
+  getFullName: function() {
+    return `${this.name} ${this.surname}, ${this.city}.`
+  }
 }
+
+console.log(studentObj.getFullName())
 
 console.log(studentObj)
 
@@ -159,11 +164,89 @@ console.log(studentObj.address['city'])
 console.log(studentObj.address.street)
 console.log(studentObj.address['street'])
 
-studentObj.contacts = {
-  phone: '06453435487',
-  email: 'vardas@pavarde.lt'
-}
+// studentObj.contacts = {
+//   phone: '06453435487',
+//   email: 'vardas@pavarde.lt'
+// }
+
+// studentObj.contacts = {}
+studentObj.contacts = new Object()
+studentObj.contacts.phone = '06453435487',
+studentObj.contacts.email = 'vardas@pavarde.lt'
 
 console.log(studentObj.contacts)
 console.log(studentObj.contacts.phone)
 console.log(studentObj.contacts.email)
+
+// Ternery operators (ne į temą)
+let time = 15
+let output
+
+if (time > 15) {
+  output = 'Antra dienos puse'
+} else {
+  output = 'Pirma dienos puse'
+}
+
+let output2 = time > 15 ? 'Antra dienos puse' : 'Pirma dienos puse'
+
+
+// Objektai masyvuose
+
+let studentsList = [
+  {
+    name: 'John',
+    age: 25,
+  },
+  {
+    name: 'Steve',
+    age: 32,
+  },
+  {
+    name: 'Peter',
+    age: 20,
+  },
+]
+
+console.log(studentsList)
+
+console.log(studentsList[0])
+console.log(studentsList[0].name)
+console.log(studentsList[0].age)
+
+console.log(studentsList[1])
+console.log(studentsList[1].name)
+console.log(studentsList[1].age)
+
+console.log(studentsList[2])
+console.log(studentsList[2].name)
+console.log(studentsList[2].age)
+
+for (let i = 0; i < studentsList.length; i++) {
+  console.log(studentsList[i])
+  console.log(studentsList[i].name)
+  console.log(studentsList[i].age)
+
+  console.log(`${studentsList[i].name} is ${studentsList[i].age} years old.`)
+}
+
+studentsList.forEach((student) => {
+  console.log(student)
+  console.log(student.name)
+  console.log(student.age)
+
+  console.log(`${student.name} is ${student.age} years old.`)
+})
+
+// let studentDescriptions = studentsList.map(student => {
+//   return `${student.name} is ${student.age} years old.`
+// })
+
+let studentDescriptions = studentsList.map(student => `${student.name} is ${student.age} years old.`)
+
+console.log(studentDescriptions)
+
+studentDescriptions.forEach(text => console.log(text))
+
+let filteredStudents = studentsList.filter(student => student.age > 20)
+console.log(filteredStudents)
