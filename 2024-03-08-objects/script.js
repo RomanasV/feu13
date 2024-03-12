@@ -90,7 +90,31 @@ let studentObj = {
   },
   getFullName: function() {
     return `${this.name} ${this.surname}, ${this.city}.`
-  }
+  },
+  setStudentInactive: function() {
+    this.isActive = false
+    return this.isActive
+  },
+  setStudentActive() {
+    this.isActive = true
+    // return this.isActive
+    return true
+  },
+  getHobbies: function() {
+    let output = `Hobbies are: ${this.hobbies.join(', ')}.`
+    return output
+  },
+  removeHobby: function(hobbyToRemove) {
+    // let updatedHobbies = this.hobbies.filter(hobby => {
+    //   return hobby !== hobbyToRemove
+    // })
+
+    // this.hobbies = updatedHobbies
+
+    this.hobbies = this.hobbies.filter(hobby => hobby !== hobbyToRemove)
+
+    return this.hobbies
+  },
 }
 
 console.log(studentObj.getFullName())
@@ -250,3 +274,52 @@ studentDescriptions.forEach(text => console.log(text))
 
 let filteredStudents = studentsList.filter(student => student.age > 20)
 console.log(filteredStudents)
+
+// Funkcijos objektuose (methods)
+console.log(studentObj)
+console.log(studentObj.getFullName())
+
+console.log(studentObj.isActive)
+console.log(studentObj.setStudentInactive())
+console.log(studentObj.isActive)
+
+console.log(studentObj.setStudentActive())
+console.log(studentObj.isActive)
+
+studentObj.switchStudentActivity = function() {
+  // if (this.isActive) {
+  //   this.isActive = false
+  // } else {
+  //   this.isActive = true
+  // }
+
+  this.isActive = !this.isActive
+
+  return this.isActive
+}
+
+console.log(studentObj.switchStudentActivity())
+console.log(studentObj.switchStudentActivity())
+console.log(studentObj.switchStudentActivity())
+
+console.log(studentObj.getHobbies())
+
+studentObj.addNewHobby = function(newHobby) {
+  this.hobbies.push(newHobby)
+  return this.hobbies
+}
+
+console.log(studentObj.addNewHobby('writing'))
+console.log(studentObj.hobbies)
+
+console.log(studentObj.removeHobby('reading'))
+
+
+// let company1 = new Object()
+let company1 = {}
+company1.ceo = 'John Doe'
+
+
+let company2 = {
+  ceo: 'John Doe',
+}
