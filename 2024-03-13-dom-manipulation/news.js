@@ -1,3 +1,22 @@
+let primaryNewsData = [
+  {
+    title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+    url: '#',
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    imageAlt: '',
+    category: 'Programavimas',
+    date: '2024-02-01',
+  },
+  {
+    title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+    url: '#',
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    imageAlt: '',
+    category: 'Programavimas',
+    date: '2024-02-01',
+  },
+]
+
 // let content = document.querySelector('#content')
 let content = document.getElementById('content')
 
@@ -34,73 +53,92 @@ let pageTitle = createElement('page-title', 'h1', 'Naujienos')
 let primaryNewsList = createElement('primary-news-list')
 
 
+// let primaryNewsItem1 = createNewsItem(
+//   '#', 
+//   'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+//   '', 
+//   'Programavimas', 
+//   'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+//   '2024-02-01'
+// )
 
+// let primaryNewsItem2 = createNewsItem(
+//   '#', 
+//   '',
+//   '', 
+//   'AI', 
+//   'Pavadinimas'
+// )
 
+// primaryNewsList.append(primaryNewsItem1, primaryNewsItem2)
 
-let primaryNewsItem1 = createElement('news-item')
-primaryNewsList.append(primaryNewsItem1)
+primaryNewsData.forEach(newsData => {
+  // let primaryNewsItem = createNewsItem(
+  //   newsData.url, 
+  //   newsData.imageSrc,
+  //   newsData.imageAlt, 
+  //   newsData.category, 
+  //   newsData.title,
+  //   newsData.date
+  // )
 
-let primaryNewsItemLink1 = createElement('a')
-primaryNewsItemLink1.href = '#'
-primaryNewsItem1.append(primaryNewsItemLink1)
+  // let url = newsData.url
+  // let imageSrc = newsData.imageSrc
+  // let imageAlt = newsData.imageAlt
+  // let category = newsData.category
+  // let title = newsData.title
+  // let date = newsData.date
 
-let primaryNewsImageWrapper1 = createElement('news-image-wrapper')
-primaryNewsItemLink1.append(primaryNewsImageWrapper1)
+  let { url, imageSrc, imageAlt, category, title, date } = newsData
 
-let primaryNewsImage1 = createElement('news-image', 'img')
-primaryNewsImage1.src = 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg'
-primaryNewsImage1.alt = ''
-primaryNewsImageWrapper1.append(primaryNewsImage1)
+  let primaryNewsItem = createNewsItem(url, title, imageSrc, imageAlt, category, date)
 
-let primaryNewsContentWrapper1 = createElement('news-content-wrapper')
-primaryNewsItemLink1.append(primaryNewsContentWrapper1)
-
-let primaryNewsCategory1 = createElement('news-category', 'span', 'Programavimas')
-primaryNewsContentWrapper1.append(primaryNewsCategory1)
-
-let primaryNewsTitle1 = createElement('news-title', 'h2', 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų')
-primaryNewsContentWrapper1.append(primaryNewsTitle1)
-
-let primaryNewsDate1 = createElement('news-date', 'span', '2024-02-01')
-primaryNewsContentWrapper1.append(primaryNewsDate1)
-
-
-
-
-
-
-
-let primaryNewsItem2 = createElement('news-item')
-primaryNewsList.append(primaryNewsItem2)
-
-let primaryNewsItemLink2 = createElement('a')
-primaryNewsItemLink2.href = '#'
-primaryNewsItem2.append(primaryNewsItemLink2)
-
-let primaryNewsImageWrapper2 = createElement('news-image-wrapper')
-primaryNewsItemLink2.append(primaryNewsImageWrapper2)
-
-let primaryNewsImage2 = createElement('news-image', 'img')
-primaryNewsImage2.src = 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg'
-primaryNewsImage2.alt = ''
-primaryNewsImageWrapper2.append(primaryNewsImage2)
-
-let primaryNewsContentWrapper2 = createElement('news-content-wrapper')
-primaryNewsItemLink2.append(primaryNewsContentWrapper2)
-
-let primaryNewsCategory2 = createElement('news-category', 'span', 'Programavimas')
-primaryNewsContentWrapper2.append(primaryNewsCategory2)
-
-let primaryNewsTitle2 = createElement('news-title', 'h2', 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 52 mln. papildomų eurų')
-primaryNewsContentWrapper2.append(primaryNewsTitle2)
-
-let primaryNewsDate2 = createElement('news-date', 'span', '2024-02-02')
-primaryNewsContentWrapper2.append(primaryNewsDate2)
-
+  primaryNewsList.append(primaryNewsItem)
+})
 
 
 
 let secondaryNewsList = createElement('secondary-news-list')
+
+let secondaryNewsItem1 = createNewsItem(
+  '#', 
+  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+  '', 
+  'Programavimas', 
+  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+  '2024-02-01'
+)
+
+let secondaryNewsItem2 = createNewsItem(
+  '#', 
+  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+  '', 
+  'Programavimas', 
+  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+  '2024-02-01'
+)
+
+let secondaryNewsItem3 = createNewsItem(
+  '#', 
+  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+  '', 
+  'Programavimas', 
+  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+  '2024-02-01'
+)
+
+let secondaryNewsItem4 = createNewsItem(
+  '#', 
+  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+  '', 
+  'Programavimas', 
+  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+  '2024-02-01'
+)
+
+secondaryNewsList.append(secondaryNewsItem1, secondaryNewsItem2, secondaryNewsItem3, secondaryNewsItem4)
+
+
 let moreNewsButton = largeLink('#', 'Visos naujienos')
 
 newsSection.append(pageTitle, primaryNewsList, secondaryNewsList, moreNewsButton)
@@ -136,7 +174,11 @@ pageContent.append(sidebarContent)
 
 function createElement(className, type = 'div', content = '') {
   let element = document.createElement(type)
-  element.classList.add(className)
+  
+  if (className) {
+    element.classList.add(className)
+  }
+  
   element.textContent = content
 
   return element
@@ -149,4 +191,45 @@ function largeLink(url, content = '') {
   element.textContent = content
 
   return element
+}
+
+function createNewsItem(url, title, imageSrc, imageAlt, category, date) {
+  if (!url || !title) {
+    return ''
+  }
+
+  let newsItem = createElement('news-item')
+
+  let link = createElement('', 'a')
+  link.href = url
+  newsItem.append(link)
+
+  if (imageSrc) {
+    let imageWrapper = createElement('news-image-wrapper')
+    link.append(imageWrapper)
+    
+    let imageElement = createElement('news-image', 'img')
+    // imageElement.src = 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg'
+    imageElement.src = imageSrc
+    imageElement.alt = imageAlt
+    imageWrapper.append(imageElement)
+  }
+
+  let contentWrapper = createElement('news-content-wrapper')
+  link.append(contentWrapper)
+
+  if (category) {
+    let categoryElement = createElement('news-category', 'span', category)
+    contentWrapper.append(categoryElement)
+  }
+
+  let titleElement = createElement('news-title', 'h2', title)
+  contentWrapper.append(titleElement)
+
+  if (date) {
+    let dateElement = createElement('news-date', 'span', date)
+    contentWrapper.append(dateElement)
+  }
+
+  return newsItem
 }
