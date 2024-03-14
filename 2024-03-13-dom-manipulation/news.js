@@ -52,6 +52,70 @@ let secondaryNewsData = [
   },
 ]
 
+let podcastsListData = [
+  {
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2021/09/Spotify-300x300.png',
+    imageAlt: '',
+    length: '7:55',
+    title: 'Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas',
+    date: '2021-09-02',
+  },
+  {
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2021/09/Spotify-300x300.png',
+    imageAlt: '',
+    length: '7:55',
+    title: 'Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas',
+    date: '2021-09-02',
+  },
+  {
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2021/09/Spotify-300x300.png',
+    imageAlt: '',
+    length: '7:55',
+    title: 'Pojūčius pirštų galiukams sugrąžinti gali smegenų implantas',
+    date: '2021-09-02',
+  },
+]
+
+let eventsDate = [
+  {
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/CCBaltics-vizualas-1024x592-1.png',
+    imageAlt: '',
+    date: {
+      day: 24,
+      month: 'geg',
+    },
+    location: 'Lietuvos parodų ir kongresų centras LITEXPO',
+    title: 'COMIC CON BALTICS 2024',
+    url: '#'
+  },
+  {
+    date: {
+      day: 24,
+      month: 'geg',
+    },
+    location: 'Lietuvos parodų ir kongresų centras LITEXPO',
+    title: 'COMIC CON BALTICS 2024',
+    url: '#'
+  },
+  {
+    url: '#',
+    date: {
+      day: 2,
+      month: 'bal',
+    },
+    title: 'PyCon Lithuania 2024'
+  },
+  {
+    url: '#',
+    date: {
+      day: 2,
+      month: 'bal',
+    },
+    location: 'Kaunas',
+    title: 'LT Game Jam 2024'
+  },
+]
+
 // let content = document.querySelector('#content')
 let content = document.getElementById('content')
 
@@ -222,30 +286,6 @@ videoSection.append(videoSectionTitle, primaryVideoWrapper, secondaryVideoWrappe
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // let sidebarContent = document.createElement('aside')
 // sidebarContent.classList.add('sidebar-content')
 // pageContent.append(sidebarContent)
@@ -253,7 +293,9 @@ videoSection.append(videoSectionTitle, primaryVideoWrapper, secondaryVideoWrappe
 let sidebarContent = createElement('sidebar-content', 'aside')
 pageContent.append(sidebarContent)
 
-
+let podcastsSection = createPodcastsSection(podcastsListData, 'Podcastai ir radijo laidos')
+let eventsSection = createEventsSection(eventsDate, 'Renginiai')
+sidebarContent.append(podcastsSection, eventsSection)
 
 function createElement(className, type = 'div', content = '') {
   let element = document.createElement(type)
@@ -343,8 +385,106 @@ function createVideoElement(iframe, title) {
   return wrapper
 }
 
+function createPodcastsSection(podcastsData, sectionTitle) {
+  let section = createElement('podcasts-section')
 
-{/* <div class="video-wrapper">
-  <h3 class="video-title">#4 Ctrl+Alt+Defend: Kibernetinis saugumas šiandien</h3>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/yovsPjuDElw?si=W3TFXeDi_OAjbQ6O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div> */}
+  let titleElement = createElement('section-title', 'h2', sectionTitle)
+  section.append(titleElement)
+
+  let podcastsListElement = createElement('podcasts-list')
+  section.append(podcastsListElement)
+
+  podcastsData.forEach(podcastData => {
+    let podcastItem = createPodcastItem(podcastData)
+    podcastsListElement.append(podcastItem)
+  })
+
+  return section
+}
+
+function createPodcastItem(data) {
+  let podcastItem = createElement('podcast-item')
+
+  if (data.imageSrc) {
+    let imageElement = createElement('podcast-image', 'img')
+    imageElement.src = data.imageSrc
+    imageElement.alt = data.imageAlt
+    podcastItem.append(imageElement)
+  }
+
+  let lengthElement = createElement('podcast-length', 'span', `Trukmė: ${data.length}`)
+  podcastItem.append(lengthElement)
+
+  let playElement = createElement('podcast-play', 'button', 'Play')
+  podcastItem.append(playElement)
+
+  let podcastContentElement = createElement('podcast-content')
+  podcastItem.append(podcastContentElement)
+
+  let podcastTitleElement = createElement('podcast-title', 'h3', data.title)
+  podcastContentElement.append(podcastTitleElement)
+
+  let podcastDateElement = createElement('podcast-date', 'span', data.date)
+  podcastContentElement.append(podcastDateElement)
+
+  return podcastItem
+}
+
+function createEventsSection(eventsData, sectionTitle) {
+  let sectionElement = createElement('events-section')
+  
+  let titleElement = createElement('section-title', 'h2', sectionTitle)
+  sectionElement.append(titleElement)
+  
+  let eventsListElement = createElement('events-list')
+  sectionElement.append(eventsListElement)
+  
+  eventsData.forEach(eventData => {
+    let eventItem = createEventItem(eventData)
+    eventsListElement.append(eventItem)
+  })
+
+  return sectionElement
+}
+
+function createEventItem(data) {
+  let { date, imageAlt, imageSrc, location, title, url } = data
+
+  let eventItem = createElement('event-item')
+
+  let eventLink = createElement('', 'a')
+  eventLink.href = url
+
+  eventItem.append(eventLink)
+
+  if (imageSrc) {
+    let imageWrapperElement = createElement('event-image-wrapper')
+    eventLink.append(imageWrapperElement)
+
+    let imageElement = createElement('event-image', 'img')
+    imageElement.src = imageSrc
+    imageElement.alt = imageAlt
+    imageWrapperElement.append(imageElement)
+  }
+
+  let contentWrapper = createElement('event-content-wrapper')
+  eventLink.append(contentWrapper)
+
+  let dateElement = createElement('event-date')
+  contentWrapper.append(dateElement)
+
+  let dayElement = createElement('event-day', 'div', date.day)
+  let monthElement = createElement('event-month', 'div', date.month)
+  dateElement.append(dayElement, monthElement)
+
+  let contentElement = createElement('event-content')
+  contentWrapper.append(contentElement)
+
+  let eventLocation = createElement('event-location', 'span', location)
+  contentElement.append(eventLocation)
+  
+  let eventTitle = createElement('event-title', 'h3', title)
+  contentElement.append(eventTitle)
+
+  return eventItem
+}
