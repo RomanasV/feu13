@@ -1,8 +1,43 @@
 let primaryNewsData = [
   {
     title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    url: '#',
+    imageAlt: '',
+    category: 'Programavimas',
+    date: '2024-02-01',
+  },
+  {
+    title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
     url: '#',
     imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    imageAlt: '',
+    category: 'Programavimas',
+    date: '2024-02-01',
+  },
+]
+
+let secondaryNewsData = [
+  {
+    title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    url: '#',
+    imageAlt: '',
+    category: 'Programavimas',
+    date: '2024-02-01',
+  },
+  {
+    title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+    url: '#',
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    imageAlt: '',
+    category: 'Programavimas',
+    date: '2024-02-01',
+  },
+  {
+    title: 'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+    imageSrc: 'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+    url: '#',
     imageAlt: '',
     category: 'Programavimas',
     date: '2024-02-01',
@@ -89,9 +124,10 @@ primaryNewsData.forEach(newsData => {
   // let title = newsData.title
   // let date = newsData.date
 
-  let { url, imageSrc, imageAlt, category, title, date } = newsData
+  // let { url, imageSrc, imageAlt, category, title, date } = newsData
+  // let primaryNewsItem = createNewsItem(url, title, imageSrc, imageAlt, category, date)
 
-  let primaryNewsItem = createNewsItem(url, title, imageSrc, imageAlt, category, date)
+  let primaryNewsItem = createNewsItem(newsData)
 
   primaryNewsList.append(primaryNewsItem)
 })
@@ -100,44 +136,50 @@ primaryNewsData.forEach(newsData => {
 
 let secondaryNewsList = createElement('secondary-news-list')
 
-let secondaryNewsItem1 = createNewsItem(
-  '#', 
-  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
-  '', 
-  'Programavimas', 
-  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
-  '2024-02-01'
-)
+// let secondaryNewsItem1 = createNewsItem(
+//   '#', 
+//   'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+//   '', 
+//   'Programavimas', 
+//   'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+//   '2024-02-01'
+// )
 
-let secondaryNewsItem2 = createNewsItem(
-  '#', 
-  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
-  '', 
-  'Programavimas', 
-  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
-  '2024-02-01'
-)
+// let secondaryNewsItem2 = createNewsItem(
+//   '#', 
+//   'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+//   '', 
+//   'Programavimas', 
+//   'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+//   '2024-02-01'
+// )
 
-let secondaryNewsItem3 = createNewsItem(
-  '#', 
-  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
-  '', 
-  'Programavimas', 
-  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
-  '2024-02-01'
-)
+// let secondaryNewsItem3 = createNewsItem(
+//   '#', 
+//   'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+//   '', 
+//   'Programavimas', 
+//   'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+//   '2024-02-01'
+// )
 
-let secondaryNewsItem4 = createNewsItem(
-  '#', 
-  'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
-  '', 
-  'Programavimas', 
-  'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
-  '2024-02-01'
-)
+// let secondaryNewsItem4 = createNewsItem(
+//   '#', 
+//   'https://codeacademy.lt/wp-content/uploads/2024/02/347376644_264133982758490_1171303248287627440_n-1536x1024.jpg',
+//   '', 
+//   'Programavimas', 
+//   'Vienas kvalifikacijos keitimo projektas valstybės biudžetui atneš 51 mln. papildomų eurų',
+//   '2024-02-01'
+// )
 
-secondaryNewsList.append(secondaryNewsItem1, secondaryNewsItem2, secondaryNewsItem3, secondaryNewsItem4)
+// secondaryNewsList.append(secondaryNewsItem1, secondaryNewsItem2, secondaryNewsItem3, secondaryNewsItem4)
 
+// secondaryNewsData.forEach(newsData => {
+//   let secondaryNewsItem = createNewsItem(newsData)
+//   secondaryNewsList.append(secondaryNewsItem)
+// })
+
+secondaryNewsData.forEach(newsData => secondaryNewsList.append(createNewsItem(newsData)))
 
 let moreNewsButton = largeLink('#', 'Visos naujienos')
 
@@ -147,8 +189,49 @@ newsSection.append(pageTitle, primaryNewsList, secondaryNewsList, moreNewsButton
 // videoSection.classList.add('video-section')
 // mainContent.append(videoSection)
 
-let videoSection = createElement('news-section')
+let videoSection = createElement('video-section')
 mainContent.append(videoSection)
+
+let videoSectionTitle = createElement('section-title', 'h2', 'Vaizdo įrašai')
+let primaryVideoWrapper = createElement('primary-video-wrapper')
+
+let primaryVideoElement = createVideoElement(
+  `<iframe width="560" height="315" src="https://www.youtube.com/embed/yovsPjuDElw?si=W3TFXeDi_OAjbQ6O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`,
+  '#4 Ctrl+Alt+Defend: Kibernetinis saugumas šiandien'
+)
+
+primaryVideoWrapper.append(primaryVideoElement)
+
+let secondaryVideoWrapper = createElement('secondary-video-wrapper')
+
+let secondaryVideoElement1 = createVideoElement(
+  '<iframe width="560" height="315" src="https://www.youtube.com/embed/yovsPjuDElw?si=W3TFXeDi_OAjbQ6O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+  'Susipažink su mūsų įdarbinimo partneriais – Danske Bank!'
+)
+
+let secondaryVideoElement2 = createVideoElement(
+  '<iframe width="560" height="315" src="https://www.youtube.com/embed/yovsPjuDElw?si=W3TFXeDi_OAjbQ6O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>',
+  '#3 Kaip atrodo Web Dizainerio (UX/UI) karjera?'
+)
+
+secondaryVideoWrapper.append(secondaryVideoElement1, secondaryVideoElement2)
+
+let videoButton = largeLink('#', 'Visi vaizdo įrašai')
+
+videoSection.append(videoSectionTitle, primaryVideoWrapper, secondaryVideoWrapper, videoButton)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,7 +276,16 @@ function largeLink(url, content = '') {
   return element
 }
 
-function createNewsItem(url, title, imageSrc, imageAlt, category, date) {
+function createNewsItem(data) {
+  // let url = data.url
+  // let title = data.title
+  // let imageSrc = data.imageSrc
+  // let imageAlt = data.imageAlt
+  // let category = data.category
+  // let date = data.date
+
+  let { url, title, imageSrc, imageAlt, category, date } = data
+
   if (!url || !title) {
     return ''
   }
@@ -233,3 +325,26 @@ function createNewsItem(url, title, imageSrc, imageAlt, category, date) {
 
   return newsItem
 }
+
+function createVideoElement(iframe, title) {
+  if (!iframe) {
+    return ''
+  }
+
+  let wrapper = createElement('video-wrapper')
+
+  wrapper.innerHTML = iframe
+
+  if (title) {
+    let titleElement = createElement('video-title', 'h3', title)
+    wrapper.prepend(titleElement)
+  }
+
+  return wrapper
+}
+
+
+{/* <div class="video-wrapper">
+  <h3 class="video-title">#4 Ctrl+Alt+Defend: Kibernetinis saugumas šiandien</h3>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/yovsPjuDElw?si=W3TFXeDi_OAjbQ6O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div> */}
