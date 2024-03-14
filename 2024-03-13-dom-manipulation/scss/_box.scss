@@ -1,0 +1,7 @@
+@use 'variables';
+
+.box {
+  border: 2px solid variables.$color-secondary;
+  padding: variables.$spacing-xl;
+  margin-bottom: variables.$spacing-xl;
+}

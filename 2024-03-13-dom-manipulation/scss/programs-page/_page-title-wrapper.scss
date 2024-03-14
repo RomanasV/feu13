@@ -1,0 +1,80 @@
+@use 'variables';
+@use '../responsive';
+
+.page-title-wrapper {
+  margin-bottom: 30px;
+
+  .page-title {
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .page-title-banner {
+    background-color: variables.$color-white;
+    background-image: url("images/Mobile_banner_updated.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: variables.$color-black;
+    padding: 30px 30px 250px;
+    font-size: 24px;
+    font-weight: bold;
+
+    @include responsive.xl {
+      background-size: 40%;
+      background-repeat: no-repeat;
+      background-position: 85% 75%;
+      padding-bottom: 30px;
+    }
+
+    &::after {
+      content: url("images/arrow-right-blue.svg");
+    }
+
+    .page-title-banner-content {
+      display: flex;
+      flex-direction: column;
+      gap: 7px 10px;
+
+      @include responsive.xl {
+        flex-direction: row;
+      }
+    }
+  }
+
+  .page-title-banner-link {
+    position: relative;
+    display: block;
+
+    &::after {
+      content: url("images/arrow-right-blue.svg");
+      position: absolute;
+      top: 70px;
+      right: 30px;
+      transform: translateY(-50%);
+      
+      @include responsive.xl {
+        top: 50%;
+      }
+    }
+
+    .page-title-banner-mobile {
+      @include responsive.xl {
+        display: none;
+      }
+    }
+  
+    .page-title-banner-desktop {
+      display: none;
+  
+      @include responsive.xl {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@use '../responsive';
+@use 'variables';
+
+.filter-wrapper {
+  @include responsive.xl {
+    width: 40%;
+  }
+
+  @include responsive.xxl {
+    width: 30%;
+  }
+
+  .filter-form {
+    background-color: variables.$color-white;
+    padding: 45px 40px 40px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+
+    position: sticky;
+    top: 20px;
+
+    .filter-result {
+      font-size: 25px;
+      font-weight: bold;
+    }
+  }
+}

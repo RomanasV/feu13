@@ -1,0 +1,146 @@
+@use 'variables';
+@use '../responsive';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: variables.$color-background;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  max-width: 1230px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.button {
+  padding: 13px 30px 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+
+  &.button-primary {
+    border-color: variables.$color-primary;
+
+    &.button-outline {
+      color: variables.$color-primary;
+      background-color: transparent;
+    }
+
+    &.button-fill {
+      background-color: variables.$color-primary;
+      color: variables.$color-white;
+    }
+  }
+
+  &.button-secondary {
+    border-color: variables.$color-secondary;
+
+    &.button-outline {
+      color: variables.$color-secondary;
+      background-color: transparent;
+    }
+  
+    &.button-fill {
+      background-color: variables.$color-secondary;
+      color: variables.$color-white;
+    }
+  }
+
+  &.button-danger {
+    border-color: red;
+
+    &.button-outline {
+      color: red;
+      background-color: transparent;
+    }
+
+    &.button-fill {
+      background-color: red;
+      color: variables.$color-white;
+    }
+  }
+
+  &.button-round {
+    border-radius: 50px;
+  }
+
+  &.button-large {
+    font-size: 30px;
+    padding: 18px 35px 16px;
+  }
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+
+  label {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  select {
+    background-color: variables.$color-background-select;
+    border-color: variables.$color-background-select;
+    padding: 13px 20px 11px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin-left: 0;
+
+  legend {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0;
+    margin-bottom: 5px;
+  }
+
+  .form-control {
+    flex-direction: row;
+    margin-bottom: 10px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }    
+
+    label {
+      font-weight: normal;
+    }
+  }
+}
+
+.color-secondary {
+  color: variables.$color-secondary;
+}
+
+.color-black {
+  color: variables.$color-black;
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @include responsive.xl {
+    flex-direction: row;
+  }
+}

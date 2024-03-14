@@ -1,0 +1,33 @@
+@use 'responsive';
+
+.video-section {
+  display: grid;
+  row-gap: 30px;
+
+  .video-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .video-title {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .secondary-video-wrapper {
+    display: grid;
+    gap: 30px;
+
+    @include responsive.md {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include responsive.lg {
+      grid-template-columns: 1fr;
+    }
+
+    @include responsive.xl {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

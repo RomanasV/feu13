@@ -1,0 +1,53 @@
+.events-section {
+  display: grid;
+  row-gap: 30px;
+
+  .events-list {
+    display: grid;
+    row-gap: 70px;
+
+    .event-item {
+      background-color: black;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      .event-content-wrapper {
+        padding: 60px 20px 20px;
+        position: relative;
+
+        .event-date {
+          text-align: center;
+          width: 70px;
+          border-radius: 15px;
+          overflow: hidden;
+          position: absolute;
+          top: -40px;
+
+          .event-day {
+            background-color: white;
+            color: black;
+            padding: 8px;
+            font-size: 30px;
+          }
+
+          .event-month {
+            background-color: #ff00e9;
+            padding: 5px;
+            text-transform: uppercase;
+            font-size: 13px;
+          }
+        }
+
+        .event-content {
+          .event-title {
+            margin-bottom: 0;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
