@@ -20,3 +20,5 @@ Užduotis:
 12. Sukurti du naujus mygtukus, kurie:
 12.1. Prideda 5 prie esamos h3 elemento reikšmės.
 12.2. Atima 5 iš esamos h3 elemento reikšmės.
+
+13. Sukurti input elementą (number tipo) ir jame įrašytą skaičių pridėti kaip h3 elemento tekstą.
