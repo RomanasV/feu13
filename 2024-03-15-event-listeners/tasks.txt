@@ -22,3 +22,12 @@ Užduotis:
 12.2. Atima 5 iš esamos h3 elemento reikšmės.
 
 13. Sukurti input elementą (number tipo) ir jame įrašytą skaičių pridėti kaip h3 elemento tekstą.
+
+14. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
+14.1. Šio elemento tekstas turėtų būti „Balai:"
+
+15. Sukurti naują elementą (ul) ir jį pridėti į „numbers" elemento pabaigą.
+15.1. Sukurti naują mygtuką, kurio teksta būtų „Įrašyti balą".
+15.2. Paspaudus šį mygtuką, reikia paimti reikšmę iš h3 elemento ir sukurti naują li elementą bei jį prepend'inti prie ul elemento.
+
+16. Į li elementą įrašytas balas turi būti tos pačios spalvos kaip ir h3 elemente.
