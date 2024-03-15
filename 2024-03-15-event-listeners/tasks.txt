@@ -16,3 +16,7 @@ Užduotis:
 11. Sukurti du naujus mygtukus, kurie:
 11.1. Prideda dvejetą prie esamos h3 elemento reikšmės.
 11.2. Atima dvejetą iš esamos h3 elemento reikšmės.
+
+12. Sukurti du naujus mygtukus, kurie:
+12.1. Prideda 5 prie esamos h3 elemento reikšmės.
+12.2. Atima 5 iš esamos h3 elemento reikšmės.
