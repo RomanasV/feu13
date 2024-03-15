@@ -10,3 +10,9 @@ Užduotis:
 8. Jeigu skaitmuo h3 komponente yra didesnis už 9, tai „+" mygtukas turėtų patapti neveiksnus (disabled)
 
 9. Jeigu skaitmuo yra 5 arba daugiau, tai jo spalva turėtų būti žalia. Kitu atveju - raudona.
+
+10. Sukurti naują mygtuką „Reset". Jį paspaudus viskas atstatoma į pradinę padėtį.
+
+11. Sukurti du naujus mygtukus, kurie:
+11.1. Prideda dvejetą prie esamos h3 elemento reikšmės.
+11.2. Atima dvejetą iš esamos h3 elemento reikšmės.
