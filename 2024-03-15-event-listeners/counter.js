@@ -65,7 +65,8 @@ wrapper.append(numberInput, numberDisplay, plus5Button, plus2Button, plusButton,
 checkData(0)
 
 numberInput.addEventListener('change', () => {
-  console.log(numberInput.value)
+  counter = Number(numberInput.value)
+  checkData(0)
 })
 
 plusButton.addEventListener('click', () => checkData(1))
