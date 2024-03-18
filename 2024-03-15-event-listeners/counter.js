@@ -43,8 +43,18 @@ minus5Button.textContent = '-5'
 const resetButton = document.createElement('button')
 resetButton.textContent = 'Reset'
 
+const addGradeButton = document.createElement('button')
+addGradeButton.textContent = 'Add Grade'
 
-wrapper.append(numberInput, numberDisplay, plus5Button, plus2Button, plusButton, minusButton, minus2Button, minus5Button, resetButton)
+const gradesTitle = document.createElement('h4')
+gradesTitle.textContent = 'Grades:'
+
+const deleteAllGradesButton = document.createElement('button')
+deleteAllGradesButton.textContent = 'Remove All Grades'
+
+const gradesList = document.createElement('ul')
+
+wrapper.append(numberInput, numberDisplay, plus5Button, plus2Button, plusButton, minusButton, minus2Button, minus5Button, resetButton, addGradeButton, gradesTitle, deleteAllGradesButton, gradesList)
 
 // 5. Sukurti „click" (paspaudimo) event listener'ius abiems mygtukams.
 // 6. „-" mygtuko event listeneris turėtų iškviesti funkciją, kuri sumažina skaičių h3 elemente, o „+" mygtuko paspaudimas turėtų skaičių padidinti
@@ -61,6 +71,20 @@ wrapper.append(numberInput, numberDisplay, plus5Button, plus2Button, plusButton,
 // 9. Jeigu skaitmuo yra 5 arba daugiau, tai jo spalva turėtų būti žalia. Kitu atveju - raudona.
 
 // 13. Sukurti input elementą (number tipo) ir jame įrašytą skaičių pridėti kaip h3 elemento tekstą.
+
+// 14. Sukurti naują elementą (h4) ir jį pridėti į „numbers" elemento pabaigą.
+// 14.1. Šio elemento tekstas turėtų būti „Balai:"
+
+// 15. Sukurti naują elementą (ul) ir jį pridėti į „numbers" elemento pabaigą.
+// 15.1. Sukurti naują mygtuką, kurio teksta būtų „Įrašyti balą".
+// 15.2. Paspaudus šį mygtuką, reikia paimti reikšmę iš h3 elemento ir sukurti naują li elementą bei jį prepend'inti prie ul elemento.
+
+// 16. Į li elementą įrašytas balas turi būti tos pačios spalvos kaip ir h3 elemente.
+
+// 17.1. Sukurti mygtuką ir jį įdėti į li elementą.
+// 17.2. Paspaudus šį mygtuką, li elementas su balu turi būti ištrintas.
+
+// 18. Po h4 elementu pridėti mygtuką, kurio tekstas būtų „Ištrinti visus balus". Paspaudus šį mygtuką, ištrinami visi li elementai.
 
 checkData(0)
 
@@ -79,6 +103,26 @@ minus5Button.addEventListener('click', () => checkData(-5))
 resetButton.addEventListener('click', () => {
   counter = initialCounter
   checkData(0)
+})
+
+addGradeButton.addEventListener('click', () => {
+  const gradeItem = document.createElement('li')
+  gradeItem.textContent = counter
+  gradeItem.style.color = numberDisplay.style.color
+  gradesList.prepend(gradeItem)
+
+  const deleteButton = document.createElement('button')
+  deleteButton.textContent = 'X'
+  gradeItem.append(deleteButton)
+
+  deleteButton.addEventListener('click', () => {
+    gradeItem.remove()
+  })
+})
+
+deleteAllGradesButton.addEventListener('click', () => {
+  const allGrades = document.querySelectorAll('li')
+  allGrades.forEach(grade => grade.remove())
 })
 
 function checkData(num) {
