@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms</title>
+</head>
+<body>
+
+  <!-- <form action="/form-submit.html"> -->
+  <form id="test-form">
+    <div class="form-control">
+      <label for="person-name">Name:</label>
+      <input type="text" id="person-name" name="first-name" maxlength="20" minlength="3" placeholder="Enter your name">
+    </div>
+
+    <div class="form-control">
+      <label for="color">Color:</label>
+      <input type="color" name="color" id="color">
+    </div>
+
+    <div class="form-control">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email">
+    </div>
+
+    <div class="form-control">
+      <input type="checkbox" id="terms" name="agree" value="agree-with-terms">
+      <label for="terms">Accept terms and conditions</label>
+    </div>
+
+    <!-- 
+    <input type="date">
+    <input type="password">
+    <input type="range"> -->
+
+    <!-- <button type="submit">Submit!</button> -->
+    <input type="submit" value="Submit!" id="submit-button">
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
