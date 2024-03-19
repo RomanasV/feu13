@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
+</head>
+<body>
+  <!-- PIRMA DALIS:
+  Sukurti kontaktų formą.
+  1. Kontaktų formoje turi būti šie laukeliai:
+      1. Tekstinis laukelis vardui (privalomas).
+      2. Tekstinis laukelis pavardei (privalomas).
+      3. Skaičiaus laukelis amžiui (privalomas).
+      4. Laukelis įvesti telefono numerį (neprivalomas).
+      5. Laukelis įvesti el. paštą (privalomas).
+      6. Range tipo laukelis, kuris skirtas įvertinti savo IT žinias nuo 1 iki 10. Galimas vertinimas tik sveikiems skaičiams.
+      7. Radio tipo laukeliai, kuriuose pasirenkamas grupės numeris. Turi būti galimybė pasirinkti grupes nuo FEU 10gr. iki FEU 20gr.
+      8. Checkbox tipo laukeliai, kuriuose galima pasirinkti dominančias programavimo kalbas (bent 4 skirtingi checkbox elementai).
+      9. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą. -->
+  
+  <form id="students-form">
+    <div class="form-control">
+      <label for="name">Name:</label>
+      <input type="text" name="student-name" id="name" value="John" required>
+    </div>
+
+    <div class="form-control">
+      <label for="surname">Surname:</label>
+      <input type="text" name="student-surname" id="surname" value="Doe" required>
+    </div>
+
+    <div class="form-control">
+      <label for="age">Age:</label>
+      <input type="number" name="student-age" id="age" value="25" min="18" required>
+    </div>
+
+    <div class="form-control">
+      <label for="phone">Phone:</label>
+      <input type="tel" name="student-phone" id="phone" value="861321545641">
+    </div>
+
+    <div class="form-control">
+      <label for="email">Email:</label>
+      <input type="email" name="student-email" id="email" value="email@email.com" required>
+    </div>
+
+    <div class="form-control">
+      <label for="it-knowledge">IT Knowledge:</label>
+      <input type="range" name="student-it-knowledge" id="it-knowledge" min="1" max="10" step="1" value="10">
+    </div>
+
+    <fieldset>
+      <legend>Group:</legend>
+      
+      <div class="form-control">
+        <input type="radio" name="group" id="group-10" value="FEU 10" checked>
+        <label for="group-10">FEU 10gr.</label>
+      </div>
+      
+      <div class="form-control">
+        <input type="radio" name="group" id="group-11" value="FEU 11">
+        <label for="group-11">FEU 11gr.</label>
+      </div>
+
+      <div class="form-control">
+        <input type="radio" name="group" id="group-12" value="FEU 12">
+        <label for="group-12">FEU 12gr.</label>
+      </div>
+
+      <div class="form-control">
+        <input type="radio" name="group" id="group-13" value="FEU 13">
+        <label for="group-13">FEU 13gr.</label>
+      </div>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Interests:</legend>
+      
+      <div class="form-control">
+        <input type="checkbox" name="interests" id="interest-1" value="JavaScript">
+        <label for="interest-1">JavaScript</label>
+      </div>
+      
+      <div class="form-control">
+        <input type="checkbox" name="interests" id="interest-2" value="React">
+        <label for="interest-2">React</label>
+      </div>
+
+      <div class="form-control">
+        <input type="checkbox" name="interests" id="interest-3" value="HTML">
+        <label for="interest-3">HTML</label>
+      </div>
+
+      <div class="form-control">
+        <input type="checkbox" name="interests" id="interest-4" value="CSS">
+        <label for="interest-4">CSS</label>
+      </div>
+    </fieldset>
+
+    <input type="submit">
+  </form>
+
+  <div id="students-list">
+
+    <div class="student-item">
+      <h3>Vardas Pavarde (25)</h3>
+      <p>Studento informacija</p>
+
+      <h4>Interests:</h4>
+
+      <ul>
+        <li>JavaScript</li>
+        <li>React</li>
+      </ul>
+    </div>
+
+    <div class="student-item">
+      <h3>Vardas Pavarde (25)</h3>
+      <p>Studento informacija</p>
+
+      <h4>Interests:</h4>
+
+      <ul>
+        <li>JavaScript</li>
+        <li>React</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="students.js"></script>
+</body>
+</html>
