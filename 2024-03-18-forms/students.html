@@ -19,7 +19,7 @@
       8. Checkbox tipo laukeliai, kuriuose galima pasirinkti dominančias programavimo kalbas (bent 4 skirtingi checkbox elementai).
       9. Šalia kiekvieno įvesties (input) elemento, pridėti label elementą, kuris žymi laukelio pavadinimą. -->
   
-  <form id="student-form">
+  <form id="student-form" novalidate>
     <div class="form-control">
       <label for="name">Name:</label>
       <input type="text" name="student-name" id="name" value="John" required>
@@ -101,7 +101,25 @@
     <input type="submit">
   </form>
 
-  <div id="students-list"></div>
+  <div id="students-list">
+
+    <!-- <div class="student-item">
+      <h2>John Doe (25)</h2>
+      <p>Phone: +12315434</p>
+      <p>Email: email@email.com</p>
+      <p>IT Knowledge: 7/10</p>
+      <p>Group: FEU 13 gr.</p>
+
+      <div class="interests-wrapper">
+        <h3>Interests:</h3>
+        <ul>
+          <li>JavaScript</li>
+          <li>CSS</li>
+        </ul>
+      </div>
+    </div> -->
+
+  </div>
 
   <script src="students.js"></script>
 </body>

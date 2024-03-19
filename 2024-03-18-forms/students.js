@@ -18,19 +18,42 @@ studentForm.addEventListener('submit', (event) => {
   const studentItem = document.createElement('div')
   studentItem.classList.add('student-item')
 
-  console.log('Name', name)
-  console.log('Surname', surname)
-  console.log('Age', age)
-  console.log('Phone', phone)
-  console.log('Email', email)
-  console.log('IT Knowledge', itKnowledge)
-  console.log('Group', group)
-  console.log('Interests', interests)
+  const nameElement = document.createElement('h2')
+  nameElement.classList.add('student-name')
+  nameElement.textContent = `${name} ${surname} (${age})`
 
-  interests.forEach(interest => {
-    console.log(interest.value)
-  })
+  const phoneElement = document.createElement('p')
+  phoneElement.textContent = `Phone: ${phone}`
 
+  const emailElement = document.createElement('p')
+  emailElement.textContent = `Email: ${email}`
 
+  const itKnowledgeElement = document.createElement('p')
+  itKnowledgeElement.textContent = `IT Knowledge: ${itKnowledge}/10`
+
+  const groupElement = document.createElement('p')
+  groupElement.textContent = `Group: ${group}  gr.`
+
+  const interestsWrapperElement = document.createElement('div')
+  interestsWrapperElement.classList.add('interests-wrapper')
+
+  const interestsTitle = document.createElement('h3')
+  interestsTitle.textContent = 'No interests selected...'
+  interestsWrapperElement.append(interestsTitle)
+
+  if (interests.length > 0) {
+    interestsTitle.textContent = 'Interests:'
+
+    const interestsListElement = document.createElement('ul')
+    interestsWrapperElement.append(interestsListElement)
+
+    interests.forEach(interest => {
+      const interestElement = document.createElement('li')
+      interestElement.textContent = interest.value
+      interestsListElement.append(interestElement)
+    })
+  }
+
+  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement)
   studentsList.prepend(studentItem)
 })
