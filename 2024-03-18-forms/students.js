@@ -1,6 +1,15 @@
 const studentForm = document.querySelector('#student-form')
 const studentsList = document.querySelector('#students-list')
 
+const knowledgeInput = studentForm.querySelector('#it-knowledge')
+const knowledgeOutput = studentForm.querySelector('#it-knowledge-output')
+
+knowledgeOutput.textContent = knowledgeInput.value
+
+knowledgeInput.addEventListener('input', (event) => {
+  knowledgeOutput.textContent = event.target.value
+})
+
 studentForm.addEventListener('submit', (event) => {
   event.preventDefault()
 
@@ -23,10 +32,12 @@ studentForm.addEventListener('submit', (event) => {
   nameElement.textContent = `${name} ${surname} (${age})`
 
   const phoneElement = document.createElement('p')
-  phoneElement.textContent = `Phone: ${phone}`
+  // phoneElement.textContent = `Phone: ${phone}`
+  phoneElement.textContent = `Phone: ****`
 
   const emailElement = document.createElement('p')
-  emailElement.textContent = `Email: ${email}`
+  // emailElement.textContent = `Email: ${email}`
+  emailElement.textContent = `Email: ****`
 
   const itKnowledgeElement = document.createElement('p')
   itKnowledgeElement.textContent = `IT Knowledge: ${itKnowledge}/10`
@@ -56,4 +67,15 @@ studentForm.addEventListener('submit', (event) => {
 
   studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement)
   studentsList.prepend(studentItem)
+  form.reset()
+  knowledgeOutput.textContent = knowledgeInput.value
+
+  const alertMessage = document.querySelector('#alert-message')
+
+  alertMessage.textContent = `Student (${name} ${surname}) was created!`
+
+  setTimeout(() => {
+    alertMessage.textContent = ''
+  }, 5000)
+  
 })
