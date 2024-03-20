@@ -24,6 +24,14 @@ studentForm.addEventListener('submit', (event) => {
   const group = form.group.value
   const interests = form.querySelectorAll('input[name="interests"]:checked')
 
+  let formIsValid = validateForm(form)
+
+  if (!formIsValid) {
+    alertMessage('Form is invalid', 'alert-danger')
+
+    return
+  }
+
   const studentItem = document.createElement('div')
   studentItem.classList.add('student-item')
 
@@ -113,4 +121,46 @@ function alertMessage(text, className) {
   setTimeout(() => {
     alertMessage.textContent = ''
   }, 5000)
+}
+
+function validateForm(form) {
+  const previousInputErrorMessages = form.querySelectorAll('.input-error-message')
+  previousInputErrorMessages.forEach(message => message.remove())
+
+  const previousErrorInputs = form.querySelectorAll('.input-error')
+  previousErrorInputs.forEach(input => input.classList.remove('input-error'))
+
+  let formIsValid = true
+
+  const nameElement = form.name
+  const name = nameElement.value
+  
+  // nameElement.classList.remove('input-error')
+
+  if (!name) {
+    nameElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'This field is required'
+    nameElement.after(inputErrorMessage)
+
+    formIsValid = false
+  }
+
+  const surnameElement = form.surname
+  const surname = surnameElement.value
+  
+  // surnameElement.classList.remove('input-error')
+
+  if (!surname) {
+    surnameElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'This field is required'
+    surnameElement.after(inputErrorMessage)
+
+    formIsValid = false
+  }
+
+  return formIsValid
 }

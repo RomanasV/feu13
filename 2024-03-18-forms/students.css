@@ -5,3 +5,11 @@
 .alert-success {
   color: green;
 }
+
+.input-error {
+  border-color: red;
+}
+
+.input-error-message {
+  color: red;
+}
