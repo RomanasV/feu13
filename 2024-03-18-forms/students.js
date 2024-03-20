@@ -32,11 +32,9 @@ studentForm.addEventListener('submit', (event) => {
   nameElement.textContent = `${name} ${surname} (${age})`
 
   const phoneElement = document.createElement('p')
-  // phoneElement.textContent = `Phone: ${phone}`
   phoneElement.textContent = `Phone: ****`
 
   const emailElement = document.createElement('p')
-  // emailElement.textContent = `Email: ${email}`
   emailElement.textContent = `Email: ****`
 
   const itKnowledgeElement = document.createElement('p')
@@ -65,7 +63,26 @@ studentForm.addEventListener('submit', (event) => {
     })
   }
 
-  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement)
+  const privateInfoButton = document.createElement('button')
+  privateInfoButton.textContent = 'Show private info'
+
+  let privateInfoIsShown = false
+
+  privateInfoButton.addEventListener('click', () => {
+    privateInfoIsShown = !privateInfoIsShown
+
+    if (privateInfoIsShown) {
+      phoneElement.textContent = `Phone: ${phone}`
+      emailElement.textContent = `Email: ${email}`
+      privateInfoButton.textContent = 'Hide private info'
+    } else {
+      phoneElement.textContent = `Phone: ****`
+      emailElement.textContent = `Email: ****`
+      privateInfoButton.textContent = 'Show private info'
+    }
+  })
+
+  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton)
   studentsList.prepend(studentItem)
   form.reset()
   knowledgeOutput.textContent = knowledgeInput.value
