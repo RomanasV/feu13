@@ -82,17 +82,35 @@ studentForm.addEventListener('submit', (event) => {
     }
   })
 
-  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton)
+  const removeStudentButton = document.createElement('button')
+  removeStudentButton.textContent = 'Remove Student'
+
+  removeStudentButton.addEventListener('click', () => {
+    studentItem.remove()
+
+    alertMessage(`Student (${name} ${surname}) was removed!`, 'alert-danger')
+  })
+
+  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton, removeStudentButton)
   studentsList.prepend(studentItem)
   form.reset()
   knowledgeOutput.textContent = knowledgeInput.value
 
-  const alertMessage = document.querySelector('#alert-message')
+  alertMessage(`Student (${name} ${surname}) was created!`, 'alert-success')
+  
+})
 
-  alertMessage.textContent = `Student (${name} ${surname}) was created!`
+function alertMessage(text, className) {
+  const alertMessage = document.querySelector('#alert-message')
+  alertMessage.className = ''
+
+  if (className) {
+    alertMessage.classList.add(className)
+  }
+
+  alertMessage.textContent = text
 
   setTimeout(() => {
     alertMessage.textContent = ''
   }, 5000)
-  
-})
+}
