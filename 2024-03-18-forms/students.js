@@ -1,5 +1,47 @@
+const initialData = [
+  {
+    name: 'Steve',
+    surname: 'Doe',
+    age: 45,
+    phone: '+37045641315',
+    email: 'steve@doe.com',
+    itKnowledge: 8,
+    group: 'FEU 10',
+    interests: ['HTML', 'CSS'],
+  },
+  {
+    name: 'Peter',
+    surname: 'Doe',
+    age: 35,
+    phone: '+37045641315',
+    email: 'steve@doe.com',
+    itKnowledge: 10,
+    group: 'FEU 15',
+    interests: ['JavaScript', 'CSS'],
+  },
+]
+
 const studentForm = document.querySelector('#student-form')
 const studentsList = document.querySelector('#students-list')
+
+console.log(initialData)
+
+initialData.forEach(studentData => {
+  console.log(studentData)
+  console.log(studentData.name)
+  console.log(studentData.surname)
+  console.log(studentData.age)
+  console.log(studentData.phone)
+  console.log(studentData.email)
+  console.log(studentData.itKnowledge)
+  console.log(studentData.group)
+  console.log(studentData.interests)
+})
+
+function createStudentItem() {
+  
+}
+
 
 const knowledgeInput = studentForm.querySelector('#it-knowledge')
 const knowledgeOutput = studentForm.querySelector('#it-knowledge-output')
@@ -31,6 +73,11 @@ studentForm.addEventListener('submit', (event) => {
   const itKnowledge = form['it-knowledge'].value
   const group = form.group.value
   const interests = form.querySelectorAll('input[name="interests"]:checked')
+
+
+
+
+
 
   const studentItem = document.createElement('div')
   studentItem.classList.add('student-item')
@@ -101,6 +148,9 @@ studentForm.addEventListener('submit', (event) => {
 
   studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton, removeStudentButton)
   studentsList.prepend(studentItem)
+
+
+
   form.reset()
   knowledgeOutput.textContent = knowledgeInput.value
 
@@ -192,3 +242,4 @@ function showInputError(input, errorText) {
 
   input.after(inputErrorMessage)
 }
+
