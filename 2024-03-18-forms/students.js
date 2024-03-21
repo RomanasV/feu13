@@ -130,140 +130,65 @@ function validateForm(form) {
   const previousErrorInputs = form.querySelectorAll('.input-error')
   previousErrorInputs.forEach(input => input.classList.remove('input-error'))
 
+  const requiredInputs = form.querySelectorAll('input:required')
+  console.log(requiredInputs)
+
   let formIsValid = true
 
-  const nameElement = form.name
-  const name = nameElement.value
-  
-  // nameElement.classList.remove('input-error')
+  requiredInputs.forEach(input => {
+    const value = input.value
 
-  if (!name) {
-    nameElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'This field is required'
-    nameElement.after(inputErrorMessage)
+    if (!value) {
+      showInputError(input, 'This field is required')
 
-    formIsValid = false
-  } else if (name.length < 3) {
-    nameElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Name mus be at least 3 letters long.'
-    nameElement.after(inputErrorMessage)
+      formIsValid = false
+    } else {
 
-    formIsValid = false
-  }
+      const id = input.id
 
+      if (id === 'name' && value.length < 3) {
 
+        showInputError(input, 'Name mus be at least 3 letters long.')
+        formIsValid = false
 
+      } else if (id === 'surname' && value.length < 3) {
 
-  const surnameElement = form.surname
-  const surname = surnameElement.value
-  
-  // surnameElement.classList.remove('input-error')
+        showInputError(input, 'Surname mus be at least 3 letters long.')
+        formIsValid = false
 
-  if (!surname) {
-    surnameElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'This field is required'
-    surnameElement.after(inputErrorMessage)
+      } else if (id === 'age') {
 
-    formIsValid = false
-  } else if (surname.length < 3) {
-    surnameElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Surname mus be at least 3 letters long.'
-    surnameElement.after(inputErrorMessage)
+        if (value < 0) {
+          showInputError(input, 'Age must be at least 0 years')
+          formIsValid = false
+        } else if (value >= 100) {
+          showInputError(input, 'Age must be less then 100 years')
+          formIsValid = false
+        }
 
-    formIsValid = false
-  }
+      } else if (id === 'phone' && (value.length < 9 || value.length > 12)) {
 
+        showInputError(input, 'Phone number is invalid')
+        formIsValid = false
 
+      } else if (id === 'email' && (value.length < 8 || !value.includes('@') || !value.includes('.'))) {
 
-  const ageElement = form.age
-  const age = ageElement.value
-  
-  if (!age) {
-    ageElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'This field is required'
-    ageElement.after(inputErrorMessage)
+        showInputError(input, 'Email is invalid')
+        formIsValid = false
 
-    formIsValid = false
-  } else if (age < 0) {
-    ageElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Age must be at least 0 years'
-    ageElement.after(inputErrorMessage)
-
-    formIsValid = false
-  } else if (age >= 100) {
-    ageElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Age must be less then 100 years'
-    ageElement.after(inputErrorMessage)
-
-    formIsValid = false
-  }
-
-
-
-
-
-  const phoneElement = form.phone
-  const phone = phoneElement.value
-  
-  if (!phone) {
-    phoneElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'This field is required'
-    phoneElement.after(inputErrorMessage)
-
-    formIsValid = false
-  } else if (phone.length < 9 || phone.length > 12) {
-    phoneElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Phone number is invalid'
-    phoneElement.after(inputErrorMessage)
-
-    formIsValid = false
-  }
-
-
-
-
-
-  const emailElement = form.email
-  const email = emailElement.value
-  
-  if (!email) {
-    emailElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'This field is required'
-    emailElement.after(inputErrorMessage)
-
-    formIsValid = false
-  } else if (email.length < 8 || !email.includes('@') || !email.includes('.')) {
-    emailElement.classList.add('input-error')
-    const inputErrorMessage = document.createElement('span')
-    inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Email is invalid'
-    emailElement.after(inputErrorMessage)
-
-    formIsValid = false
-  }
-
-
-
+      }
+    }
+  })
 
   return formIsValid
+}
+
+function showInputError(input, errorText) {
+  input.classList.add('input-error')
+
+  const inputErrorMessage = document.createElement('span')
+  inputErrorMessage.classList.add('input-error-message')
+  inputErrorMessage.textContent = errorText
+
+  input.after(inputErrorMessage)
 }
