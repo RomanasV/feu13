@@ -145,11 +145,11 @@ function validateForm(form) {
     nameElement.after(inputErrorMessage)
 
     formIsValid = false
-  } else if (name.length <= 3) {
+  } else if (name.length < 3) {
     nameElement.classList.add('input-error')
     const inputErrorMessage = document.createElement('span')
     inputErrorMessage.classList.add('input-error-message')
-    inputErrorMessage.textContent = 'Name mus be at least 4 letters long.'
+    inputErrorMessage.textContent = 'Name mus be at least 3 letters long.'
     nameElement.after(inputErrorMessage)
 
     formIsValid = false
@@ -171,6 +171,14 @@ function validateForm(form) {
     surnameElement.after(inputErrorMessage)
 
     formIsValid = false
+  } else if (surname.length < 3) {
+    surnameElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'Surname mus be at least 3 letters long.'
+    surnameElement.after(inputErrorMessage)
+
+    formIsValid = false
   }
 
 
@@ -183,6 +191,22 @@ function validateForm(form) {
     const inputErrorMessage = document.createElement('span')
     inputErrorMessage.classList.add('input-error-message')
     inputErrorMessage.textContent = 'This field is required'
+    ageElement.after(inputErrorMessage)
+
+    formIsValid = false
+  } else if (age < 0) {
+    ageElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'Age must be at least 0 years'
+    ageElement.after(inputErrorMessage)
+
+    formIsValid = false
+  } else if (age >= 100) {
+    ageElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'Age must be less then 100 years'
     ageElement.after(inputErrorMessage)
 
     formIsValid = false
@@ -203,6 +227,14 @@ function validateForm(form) {
     phoneElement.after(inputErrorMessage)
 
     formIsValid = false
+  } else if (phone.length < 9 || phone.length > 12) {
+    phoneElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'Phone number is invalid'
+    phoneElement.after(inputErrorMessage)
+
+    formIsValid = false
   }
 
 
@@ -217,6 +249,14 @@ function validateForm(form) {
     const inputErrorMessage = document.createElement('span')
     inputErrorMessage.classList.add('input-error-message')
     inputErrorMessage.textContent = 'This field is required'
+    emailElement.after(inputErrorMessage)
+
+    formIsValid = false
+  } else if (email.length < 8 || !email.includes('@') || !email.includes('.')) {
+    emailElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'Email is invalid'
     emailElement.after(inputErrorMessage)
 
     formIsValid = false
