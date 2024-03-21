@@ -15,6 +15,14 @@ studentForm.addEventListener('submit', (event) => {
 
   const form = event.target
 
+  const formIsValid = validateForm(form)
+
+  if (!formIsValid) {
+    alertMessage('Form is invalid', 'alert-danger')
+
+    return
+  }
+
   const name = form.name.value
   const surname = form.surname.value
   const age = form.age.value
@@ -23,14 +31,6 @@ studentForm.addEventListener('submit', (event) => {
   const itKnowledge = form['it-knowledge'].value
   const group = form.group.value
   const interests = form.querySelectorAll('input[name="interests"]:checked')
-
-  let formIsValid = validateForm(form)
-
-  if (!formIsValid) {
-    alertMessage('Form is invalid', 'alert-danger')
-
-    return
-  }
 
   const studentItem = document.createElement('div')
   studentItem.classList.add('student-item')
@@ -145,7 +145,18 @@ function validateForm(form) {
     nameElement.after(inputErrorMessage)
 
     formIsValid = false
+  } else if (name.length <= 3) {
+    nameElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'Name mus be at least 4 letters long.'
+    nameElement.after(inputErrorMessage)
+
+    formIsValid = false
   }
+
+
+
 
   const surnameElement = form.surname
   const surname = surnameElement.value
@@ -161,6 +172,58 @@ function validateForm(form) {
 
     formIsValid = false
   }
+
+
+
+  const ageElement = form.age
+  const age = ageElement.value
+  
+  if (!age) {
+    ageElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'This field is required'
+    ageElement.after(inputErrorMessage)
+
+    formIsValid = false
+  }
+
+
+
+
+
+  const phoneElement = form.phone
+  const phone = phoneElement.value
+  
+  if (!phone) {
+    phoneElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'This field is required'
+    phoneElement.after(inputErrorMessage)
+
+    formIsValid = false
+  }
+
+
+
+
+
+  const emailElement = form.email
+  const email = emailElement.value
+  
+  if (!email) {
+    emailElement.classList.add('input-error')
+    const inputErrorMessage = document.createElement('span')
+    inputErrorMessage.classList.add('input-error-message')
+    inputErrorMessage.textContent = 'This field is required'
+    emailElement.after(inputErrorMessage)
+
+    formIsValid = false
+  }
+
+
+
 
   return formIsValid
 }
