@@ -1,3 +1,22 @@
+// let arr = [1, 5, 3, 52]
+// console.log(arr)
+
+// let item1 = arr.slice(1, 2)
+// let item2 = arr.splice(1, 2)
+// let item3 = arr.pop()
+
+// let forEachArr = arr.forEach((item) => {
+//   return item
+// })
+// console.log(forEachArr)
+
+// let mapArr = arr.map((item) => {
+//   return item + " * 2 = " + (item * 2)
+// })
+// console.log(mapArr)
+
+
+
 const initialData = [
   {
       name: 'Sam',
@@ -63,16 +82,11 @@ const studentsList = document.querySelector('#students-list')
 
 
 initialData.forEach(studentData => {
-  // const name = studentData.name
-  // const surname = studentData.surname
-  // const age = studentData.age
-  // const phone = studentData.phone
-  // const email = studentData.email
-  // const itKnowledge = studentData.itKnowledge
-  // const group = studentData.group
-  // const interests = studentData.interests
+  createStudentElement(studentData)
+})
 
-  const { name, surname, age, phone, email, itKnowledge, group, interests } = studentData
+function createStudentElement(data) {
+  const { name, surname, age, phone, email, itKnowledge, group, interests } = data
 
   const studentItem = document.createElement('div')
   studentItem.classList.add('student-item')
@@ -144,9 +158,7 @@ initialData.forEach(studentData => {
 
   studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton, removeStudentButton)
   studentsList.prepend(studentItem)
-})
-
-
+}
 
 
 
@@ -194,88 +206,48 @@ studentForm.addEventListener('submit', (event) => {
   const group = form.group.value
   const interests = form.querySelectorAll('input[name="interests"]:checked')
 
+  // const interestsData = []
+  // interests.forEach(interest => {
+  //   interestsData.push(interest.value)
+  // })
 
+  // const interestsArr = Array.from(interests)
+  // const interestsData = interestsArr.map(interest => interest.value)
 
+  // const interestsData = Array.from(interests).map(interest => interest.value)
 
+  // SPREAD OPERATOR
+  const interestsData = [...interests].map(interest => interest.value)
 
+  // const newStudentData = {
+  //   name: name,
+  //   surname: surname,
+  //   age: age,
+  //   phone: phone,
+  //   email: email,
+  //   itKnowledge: itKnowledge,
+  //   // interests: ['JavaScript', 'PHP', 'C++'],
+  //   interests: interests,
+  //   group: group,
+  // }
 
-  const studentItem = document.createElement('div')
-  studentItem.classList.add('student-item')
-
-  const nameElement = document.createElement('h2')
-  nameElement.classList.add('student-name')
-  nameElement.textContent = `${name} ${surname} (${age})`
-
-  const phoneElement = document.createElement('p')
-  phoneElement.textContent = `Phone: ****`
-
-  const emailElement = document.createElement('p')
-  emailElement.textContent = `Email: ****`
-
-  const itKnowledgeElement = document.createElement('p')
-  itKnowledgeElement.textContent = `IT Knowledge: ${itKnowledge}/10`
-
-  const groupElement = document.createElement('p')
-  groupElement.textContent = `Group: ${group}  gr.`
-
-  const interestsWrapperElement = document.createElement('div')
-  interestsWrapperElement.classList.add('interests-wrapper')
-
-  const interestsTitle = document.createElement('h3')
-  interestsTitle.textContent = 'No interests selected...'
-  interestsWrapperElement.append(interestsTitle)
-
-  if (interests.length > 0) {
-    interestsTitle.textContent = 'Interests:'
-
-    const interestsListElement = document.createElement('ul')
-    interestsWrapperElement.append(interestsListElement)
-
-    interests.forEach(interest => {
-      const interestElement = document.createElement('li')
-      interestElement.textContent = interest.value
-      interestsListElement.append(interestElement)
-    })
+  const newStudentData = {
+    name,
+    surname,
+    age,
+    phone,
+    email,
+    itKnowledge,
+    interests: interestsData,
+    group,
   }
 
-  const privateInfoButton = document.createElement('button')
-  privateInfoButton.textContent = 'Show private info'
-
-  let privateInfoIsShown = false
-
-  privateInfoButton.addEventListener('click', () => {
-    privateInfoIsShown = !privateInfoIsShown
-
-    if (privateInfoIsShown) {
-      phoneElement.textContent = `Phone: ${phone}`
-      emailElement.textContent = `Email: ${email}`
-      privateInfoButton.textContent = 'Hide private info'
-    } else {
-      phoneElement.textContent = `Phone: ****`
-      emailElement.textContent = `Email: ****`
-      privateInfoButton.textContent = 'Show private info'
-    }
-  })
-
-  const removeStudentButton = document.createElement('button')
-  removeStudentButton.textContent = 'Remove Student'
-
-  removeStudentButton.addEventListener('click', () => {
-    studentItem.remove()
-
-    alertMessage(`Student (${name} ${surname}) was removed!`, 'alert-danger')
-  })
-
-  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton, removeStudentButton)
-  studentsList.prepend(studentItem)
-
-
+  createStudentElement(newStudentData)
 
   form.reset()
   knowledgeOutput.textContent = knowledgeInput.value
 
   alertMessage(`Student (${name} ${surname}) was created!`, 'alert-success')
-  
 })
 
 function alertMessage(text, className) {
@@ -301,7 +273,6 @@ function validateForm(form) {
   previousErrorInputs.forEach(input => input.classList.remove('input-error'))
 
   const requiredInputs = form.querySelectorAll('input:required')
-  console.log(requiredInputs)
 
   let formIsValid = true
 
