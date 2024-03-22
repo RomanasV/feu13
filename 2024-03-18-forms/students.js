@@ -1,46 +1,166 @@
 const initialData = [
   {
-    name: 'Steve',
-    surname: 'Doe',
-    age: 45,
-    phone: '+37045641315',
-    email: 'steve@doe.com',
-    itKnowledge: 8,
-    group: 'FEU 10',
-    interests: ['HTML', 'CSS'],
+      name: 'Sam',
+      surname: 'Buca',
+      age: 24,
+      phone: '869268973',
+      email: 'rokas@gmail.com',
+      itKnowledge: 7,
+      interests: ['JavaScript', 'PHP', 'C++'],
+      group: 'FEU 14',
   },
   {
-    name: 'Peter',
-    surname: 'Doe',
-    age: 35,
-    phone: '+37045641315',
-    email: 'steve@doe.com',
-    itKnowledge: 10,
-    group: 'FEU 15',
-    interests: ['JavaScript', 'CSS'],
+      name: 'Kick',
+      surname: 'Ass',
+      age: 22,
+      phone: '+37069268973',
+      email: 'arunas@gmail.com',
+      itKnowledge: 9,
+      interests: ['C', 'C++'],
+      group: 'FEU 10',
+  },
+  {
+      name: 'Bil',
+      surname: 'Asde',
+      age: 20,
+      phone: '869987529',
+      email: 'pricepas@gmail.com',
+      itKnowledge: 10,
+      interests: ['JavaScript', 'PHP', 'C++', 'Python'],
+      group: 'FEU 16',
+  },
+  {
+      name: 'Alus',
+      surname: 'Sula',
+      age: 30,
+      phone: '+370612141',
+      email: 'Petras@gmail.com',
+      itKnowledge: 6,
+      interests: ['C#'],
+      group: 'FEU 14',
+  },
+  {
+      name: 'Sam',
+      surname: 'Buca',
+      age: 24,
+      phone: '869268973',
+      email: 'rokas@gmail.com',
+      itKnowledge: 7,
+      interests: ['JavaScript', 'PHP', 'C++'],
+      group: 'FEU 14',
   },
 ]
 
 const studentForm = document.querySelector('#student-form')
 const studentsList = document.querySelector('#students-list')
 
-console.log(initialData)
+
+
+
+
+
+
+
 
 initialData.forEach(studentData => {
-  console.log(studentData)
-  console.log(studentData.name)
-  console.log(studentData.surname)
-  console.log(studentData.age)
-  console.log(studentData.phone)
-  console.log(studentData.email)
-  console.log(studentData.itKnowledge)
-  console.log(studentData.group)
-  console.log(studentData.interests)
+  // const name = studentData.name
+  // const surname = studentData.surname
+  // const age = studentData.age
+  // const phone = studentData.phone
+  // const email = studentData.email
+  // const itKnowledge = studentData.itKnowledge
+  // const group = studentData.group
+  // const interests = studentData.interests
+
+  const { name, surname, age, phone, email, itKnowledge, group, interests } = studentData
+
+  const studentItem = document.createElement('div')
+  studentItem.classList.add('student-item')
+
+  const nameElement = document.createElement('h2')
+  nameElement.classList.add('student-name')
+  nameElement.textContent = `${name} ${surname} (${age})`
+
+  const phoneElement = document.createElement('p')
+  phoneElement.textContent = `Phone: ****`
+
+  const emailElement = document.createElement('p')
+  emailElement.textContent = `Email: ****`
+
+  const itKnowledgeElement = document.createElement('p')
+  itKnowledgeElement.textContent = `IT Knowledge: ${itKnowledge}/10`
+
+  const groupElement = document.createElement('p')
+  groupElement.textContent = `Group: ${group}  gr.`
+
+  const interestsWrapperElement = document.createElement('div')
+  interestsWrapperElement.classList.add('interests-wrapper')
+
+  const interestsTitle = document.createElement('h3')
+  interestsTitle.textContent = 'No interests selected...'
+  interestsWrapperElement.append(interestsTitle)
+
+  if (interests.length > 0) {
+    interestsTitle.textContent = 'Interests:'
+
+    const interestsListElement = document.createElement('ul')
+    interestsWrapperElement.append(interestsListElement)
+
+    interests.forEach(interest => {
+      const interestElement = document.createElement('li')
+
+      interestElement.textContent = interest
+      interestsListElement.append(interestElement)
+    })
+  }
+
+  const privateInfoButton = document.createElement('button')
+  privateInfoButton.textContent = 'Show private info'
+
+  let privateInfoIsShown = false
+
+  privateInfoButton.addEventListener('click', () => {
+    privateInfoIsShown = !privateInfoIsShown
+
+    if (privateInfoIsShown) {
+      phoneElement.textContent = `Phone: ${phone}`
+      emailElement.textContent = `Email: ${email}`
+      privateInfoButton.textContent = 'Hide private info'
+    } else {
+      phoneElement.textContent = `Phone: ****`
+      emailElement.textContent = `Email: ****`
+      privateInfoButton.textContent = 'Show private info'
+    }
+  })
+
+  const removeStudentButton = document.createElement('button')
+  removeStudentButton.textContent = 'Remove Student'
+
+  removeStudentButton.addEventListener('click', () => {
+    studentItem.remove()
+
+    alertMessage(`Student (${name} ${surname}) was removed!`, 'alert-danger')
+  })
+
+  studentItem.append(nameElement, phoneElement, emailElement, itKnowledgeElement, groupElement, interestsWrapperElement, privateInfoButton, removeStudentButton)
+  studentsList.prepend(studentItem)
 })
 
-function createStudentItem() {
-  
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const knowledgeInput = studentForm.querySelector('#it-knowledge')
