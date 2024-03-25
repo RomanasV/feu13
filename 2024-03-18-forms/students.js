@@ -15,8 +15,6 @@
 // })
 // console.log(mapArr)
 
-
-
 const initialData = [
   {
       name: 'Sam',
@@ -72,14 +70,6 @@ const initialData = [
 
 const studentForm = document.querySelector('#student-form')
 const studentsList = document.querySelector('#students-list')
-
-
-
-
-
-
-
-
 
 initialData.forEach(studentData => {
   createStudentElement(studentData)
@@ -160,21 +150,6 @@ function createStudentElement(data) {
   studentsList.prepend(studentItem)
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const knowledgeInput = studentForm.querySelector('#it-knowledge')
 const knowledgeOutput = studentForm.querySelector('#it-knowledge-output')
 
@@ -246,6 +221,8 @@ studentForm.addEventListener('submit', (event) => {
 
   form.reset()
   knowledgeOutput.textContent = knowledgeInput.value
+
+  localStorage.removeItem('name')
 
   alertMessage(`Student (${name} ${surname}) was created!`, 'alert-success')
 })
@@ -334,3 +311,18 @@ function showInputError(input, errorText) {
   input.after(inputErrorMessage)
 }
 
+function formDataInLocalStorage(form) {
+  const nameInput = form.querySelector('#name')
+  const nameLocalStorage = localStorage.getItem('name')
+
+  if (nameLocalStorage !== null) {
+    nameInput.value = nameLocalStorage
+  }
+
+  nameInput.addEventListener('input', event => {
+    localStorage.setItem('name', event.target.value)
+  })
+
+}
+
+formDataInLocalStorage(studentForm)
