@@ -150,6 +150,8 @@ function createStudentElement(data) {
   studentsList.prepend(studentItem)
 }
 
+formDataInLocalStorage(studentForm)
+
 const knowledgeInput = studentForm.querySelector('#it-knowledge')
 const knowledgeOutput = studentForm.querySelector('#it-knowledge-output')
 
@@ -223,6 +225,13 @@ studentForm.addEventListener('submit', (event) => {
   knowledgeOutput.textContent = knowledgeInput.value
 
   localStorage.removeItem('name')
+  localStorage.removeItem('surname')
+  localStorage.removeItem('age')
+  localStorage.removeItem('phone')
+  localStorage.removeItem('email')
+  localStorage.removeItem('it-knowledge')
+  localStorage.removeItem('group')
+  localStorage.removeItem('interests')
 
   alertMessage(`Student (${name} ${surname}) was created!`, 'alert-success')
 })
@@ -312,7 +321,8 @@ function showInputError(input, errorText) {
 }
 
 function formDataInLocalStorage(form) {
-  const nameInput = form.querySelector('#name')
+  // const nameInput = form.querySelector('#name')
+  const nameInput = form.name
   const nameLocalStorage = localStorage.getItem('name')
 
   if (nameLocalStorage !== null) {
@@ -323,6 +333,110 @@ function formDataInLocalStorage(form) {
     localStorage.setItem('name', event.target.value)
   })
 
-}
 
-formDataInLocalStorage(studentForm)
+
+  const surnameInput = form.surname
+  const surnameLocalStorage = localStorage.getItem('surname')
+
+  if (surnameLocalStorage !== null) {
+    surnameInput.value = surnameLocalStorage
+  }
+
+  surnameInput.addEventListener('input', event => {
+    localStorage.setItem('surname', event.target.value)
+  })
+
+
+  
+
+  const ageInput = form.age
+  const ageLocalStorage = localStorage.getItem('age')
+
+  if (ageLocalStorage !== null) {
+    ageInput.value = ageLocalStorage
+  }
+
+  ageInput.addEventListener('input', event => {
+    localStorage.setItem('age', event.target.value)
+  })
+
+
+
+
+  const phoneInput = form.phone
+  const phoneLocalStorage = localStorage.getItem('phone')
+
+  if (phoneLocalStorage !== null) {
+    phoneInput.value = phoneLocalStorage
+  }
+
+  phoneInput.addEventListener('input', event => {
+    localStorage.setItem('phone', event.target.value)
+  })
+
+
+
+
+  const emailInput = form.email
+  const emailLocalStorage = localStorage.getItem('email')
+
+  if (emailLocalStorage !== null) {
+    emailInput.value = emailLocalStorage
+  }
+
+  emailInput.addEventListener('input', event => {
+    localStorage.setItem('email', event.target.value)
+  })
+
+
+
+
+  const itKnowledgeInput = form['it-knowledge']
+  const itKnowledgeLocalStorage = localStorage.getItem('it-knowledge')
+
+  if (itKnowledgeLocalStorage !== null) {
+    itKnowledgeInput.value = itKnowledgeLocalStorage
+  }
+
+  itKnowledgeInput.addEventListener('input', event => {
+    localStorage.setItem('it-knowledge', event.target.value)
+  })
+
+
+  // const groupInput = form.querySelectorAll('input[name="group"]')
+  const groupInput = form.group
+  const groupLocalStorage = localStorage.getItem('group')
+  
+  if (groupLocalStorage !== null) {
+    // form.querySelector(`[name="group"][value="${groupLocalStorage}"]`).checked = true
+    groupInput.value = groupLocalStorage
+  }
+
+  groupInput.forEach(input => {
+    input.addEventListener('input', event => {
+      localStorage.setItem('group', event.target.value)
+    })
+  })
+
+
+
+  const interestInputs = form.interests
+  const interestsLocalStorage = JSON.parse(localStorage.getItem('interests'))
+
+  if (interestsLocalStorage !== null) {
+    interestsLocalStorage.forEach(interest => {
+      form.querySelector(`[name="interests"][value="${interest}"]`).checked = true
+    })
+  }
+
+  interestInputs.forEach(checkboxInput => {
+    checkboxInput.addEventListener('input', () => {
+      
+      const checkedInterestInputs = form.querySelectorAll('[name="interests"]:checked')
+
+      const interestsData = [...checkedInterestInputs].map(interest => interest.value)
+
+      localStorage.setItem('interests', JSON.stringify(interestsData))
+    })
+  })
+}
