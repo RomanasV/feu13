@@ -224,12 +224,12 @@ studentForm.addEventListener('submit', (event) => {
   form.reset()
   knowledgeOutput.textContent = knowledgeInput.value
 
-  localStorage.removeItem('name')
-  localStorage.removeItem('surname')
-  localStorage.removeItem('age')
-  localStorage.removeItem('phone')
-  localStorage.removeItem('email')
-  localStorage.removeItem('it-knowledge')
+  localStorage.removeItem('student-name')
+  localStorage.removeItem('student-surname')
+  localStorage.removeItem('student-age')
+  localStorage.removeItem('student-phone')
+  localStorage.removeItem('student-email')
+  localStorage.removeItem('student-it-knowledge')
   localStorage.removeItem('group')
   localStorage.removeItem('interests')
 
@@ -320,123 +320,113 @@ function showInputError(input, errorText) {
   input.after(inputErrorMessage)
 }
 
-function formDataInLocalStorage(form) {
-  // const nameInput = form.querySelector('#name')
-  const nameInput = form.name
-  const nameLocalStorage = localStorage.getItem('name')
+function inputDataLocalStorage(input) {
+  const key = input.name
+  const localStorageValue = JSON.parse(localStorage.getItem(key))
 
-  if (nameLocalStorage !== null) {
-    nameInput.value = nameLocalStorage
-  }
+  if (localStorageValue !== null) {
 
-  nameInput.addEventListener('input', event => {
-    localStorage.setItem('name', event.target.value)
-  })
+    if (input.length > 0) {
 
-
-
-  const surnameInput = form.surname
-  const surnameLocalStorage = localStorage.getItem('surname')
-
-  if (surnameLocalStorage !== null) {
-    surnameInput.value = surnameLocalStorage
-  }
-
-  surnameInput.addEventListener('input', event => {
-    localStorage.setItem('surname', event.target.value)
-  })
-
-
-  
-
-  const ageInput = form.age
-  const ageLocalStorage = localStorage.getItem('age')
-
-  if (ageLocalStorage !== null) {
-    ageInput.value = ageLocalStorage
-  }
-
-  ageInput.addEventListener('input', event => {
-    localStorage.setItem('age', event.target.value)
-  })
-
-
-
-
-  const phoneInput = form.phone
-  const phoneLocalStorage = localStorage.getItem('phone')
-
-  if (phoneLocalStorage !== null) {
-    phoneInput.value = phoneLocalStorage
-  }
-
-  phoneInput.addEventListener('input', event => {
-    localStorage.setItem('phone', event.target.value)
-  })
-
-
-
-
-  const emailInput = form.email
-  const emailLocalStorage = localStorage.getItem('email')
-
-  if (emailLocalStorage !== null) {
-    emailInput.value = emailLocalStorage
-  }
-
-  emailInput.addEventListener('input', event => {
-    localStorage.setItem('email', event.target.value)
-  })
-
-
-
-
-  const itKnowledgeInput = form['it-knowledge']
-  const itKnowledgeLocalStorage = localStorage.getItem('it-knowledge')
-
-  if (itKnowledgeLocalStorage !== null) {
-    itKnowledgeInput.value = itKnowledgeLocalStorage
-  }
-
-  itKnowledgeInput.addEventListener('input', event => {
-    localStorage.setItem('it-knowledge', event.target.value)
-  })
-
-
-  // const groupInput = form.querySelectorAll('input[name="group"]')
-  const groupInput = form.group
-  const groupLocalStorage = localStorage.getItem('group')
-  
-  if (groupLocalStorage !== null) {
-    // form.querySelector(`[name="group"][value="${groupLocalStorage}"]`).checked = true
-    groupInput.value = groupLocalStorage
-  }
-
-  groupInput.forEach(input => {
-    input.addEventListener('input', event => {
-      localStorage.setItem('group', event.target.value)
-    })
-  })
-
-
-
-  const interestInputs = form.interests
-  const interestsLocalStorage = JSON.parse(localStorage.getItem('interests'))
-
-  if (interestsLocalStorage !== null) {
-    interestsLocalStorage.forEach(interest => {
-      form.querySelector(`[name="interests"][value="${interest}"]`).checked = true
-    })
-  }
-
-  interestInputs.forEach(checkboxInput => {
-    checkboxInput.addEventListener('input', () => {
+      console.log(input[0])
+      console.log(input[0].type)
+      console.log(localStorageValue)
       
-      const checkedInterestInputs = form.querySelectorAll('[name="interests"]:checked')
+      if (input[0].type === 'checkbox') {
+        localStorageValue.forEach(item => {
+          studentForm.querySelector(`[name="${key}"][value="${item}"]`).checked = true
+        })
 
-      const interestsData = [...checkedInterestInputs].map(interest => interest.value)
+      }
+        
+    }
 
-      localStorage.setItem('interests', JSON.stringify(interestsData))
-    })
+    input.value = localStorageValue
+  }
+
+
+  if (input.length > 0) {
+    const inputType = input[0].type
+
+    if (inputType === 'radio') {
+      input.forEach(inputElement => {
+        inputElement.addEventListener('input', event => {
+          localStorage.setItem(key, JSON.stringify(event.target.value))
+        })
+      })
+
+      return
+    }
+    
+    if (inputType === 'checkbox') {
+
+      input.forEach(checkboxInput => {
+        checkboxInput.addEventListener('input', () => {
+          
+          const checkedInterestInputs = studentForm.querySelectorAll(`[name="${key}"]:checked`)
+    
+          const interestsData = [...checkedInterestInputs].map(interest => interest.value)
+    
+          localStorage.setItem(key, JSON.stringify(interestsData))
+        })
+      })
+
+      return
+    }
+
+    return
+  } 
+
+    
+  input.addEventListener('input', event => {
+    localStorage.setItem(key, JSON.stringify(event.target.value))
   })
+}
+
+function formDataInLocalStorage(form) {
+  form.addEventListener('input', (event) => {
+    const input = event.target
+    // const { value, name, type } = input
+    const value = input.value
+    const name = input.name
+    const type = input.type
+    
+    if (type === 'checkbox') {
+      const checkedInterestInputs = form.querySelectorAll(`[name="${name}"]:checked`)
+      const interestsData = [...checkedInterestInputs].map(interest => interest.value)
+      localStorage.setItem(name, JSON.stringify(interestsData))
+    } else {
+      localStorage.setItem(name, JSON.stringify(value))
+    }
+  })
+
+  // const inputNames = ['student-name', 'student-surname', 'student-age']
+
+  // inputNames.forEach(inputName => {
+  //   populateInputFromLocalStorage(inputName, form)
+  // })
+
+  populateInputFromLocalStorage('student-name', form)
+  populateInputFromLocalStorage('student-surname', form)
+  populateInputFromLocalStorage('student-age', form)
+  populateInputFromLocalStorage('student-phone', form)
+  populateInputFromLocalStorage('student-email', form)
+  populateInputFromLocalStorage('student-it-knowledge', form)
+  populateInputFromLocalStorage('group', form)
+  populateInputFromLocalStorage('interests', form)
+}
+
+function populateInputFromLocalStorage(key, form) {
+  const input = form[key]
+  const localStorageValue = JSON.parse(localStorage.getItem(key))
+  
+  if (localStorageValue !== null) {
+    if (input.length > 0 && input[0].type === 'checkbox') {
+      localStorageValue.forEach(interest => {
+        form.querySelector(`[name="${key}"][value="${interest}"]`).checked = true
+      })
+    } else {
+      input.value = localStorageValue
+    }
+  }
 }
