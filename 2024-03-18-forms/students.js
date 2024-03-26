@@ -15,68 +15,135 @@
 // })
 // console.log(mapArr)
 
-const initialData = [
-  {
-      name: 'Sam',
-      surname: 'Buca',
-      age: 24,
-      phone: '869268973',
-      email: 'rokas@gmail.com',
-      itKnowledge: 7,
-      interests: ['JavaScript', 'PHP', 'C++'],
-      group: 'FEU 14',
-  },
-  {
-      name: 'Kick',
-      surname: 'Ass',
-      age: 22,
-      phone: '+37069268973',
-      email: 'arunas@gmail.com',
-      itKnowledge: 9,
-      interests: ['C', 'C++'],
-      group: 'FEU 10',
-  },
-  {
-      name: 'Bil',
-      surname: 'Asde',
-      age: 20,
-      phone: '869987529',
-      email: 'pricepas@gmail.com',
-      itKnowledge: 10,
-      interests: ['JavaScript', 'PHP', 'C++', 'Python'],
-      group: 'FEU 16',
-  },
-  {
-      name: 'Alus',
-      surname: 'Sula',
-      age: 30,
-      phone: '+370612141',
-      email: 'Petras@gmail.com',
-      itKnowledge: 6,
-      interests: ['C#'],
-      group: 'FEU 14',
-  },
-  {
-      name: 'Sam',
-      surname: 'Buca',
-      age: 24,
-      phone: '869268973',
-      email: 'rokas@gmail.com',
-      itKnowledge: 7,
-      interests: ['JavaScript', 'PHP', 'C++'],
-      group: 'FEU 14',
-  },
-]
+function init() {
+  // const initialData = [
+  //   {
+  //       name: 'Sam',
+  //       surname: 'Buca',
+  //       age: 24,
+  //       phone: '869268973',
+  //       email: 'rokas@gmail.com',
+  //       itKnowledge: 7,
+  //       interests: ['JavaScript', 'PHP', 'C++'],
+  //       group: 'FEU 14',
+  //   },
+  //   {
+  //       name: 'Kick',
+  //       surname: 'Ass',
+  //       age: 22,
+  //       phone: '+37069268973',
+  //       email: 'arunas@gmail.com',
+  //       itKnowledge: 9,
+  //       interests: ['C', 'C++'],
+  //       group: 'FEU 10',
+  //   },
+  //   {
+  //       name: 'Bil',
+  //       surname: 'Asde',
+  //       age: 20,
+  //       phone: '869987529',
+  //       email: 'pricepas@gmail.com',
+  //       itKnowledge: 10,
+  //       interests: ['JavaScript', 'PHP', 'C++', 'Python'],
+  //       group: 'FEU 16',
+  //   },
+  //   {
+  //       name: 'Alus',
+  //       surname: 'Sula',
+  //       age: 30,
+  //       phone: '+370612141',
+  //       email: 'Petras@gmail.com',
+  //       itKnowledge: 6,
+  //       interests: ['C#'],
+  //       group: 'FEU 14',
+  //   },
+  //   {
+  //       name: 'Sam',
+  //       surname: 'Buca',
+  //       age: 24,
+  //       phone: '869268973',
+  //       email: 'rokas@gmail.com',
+  //       itKnowledge: 7,
+  //       interests: ['JavaScript', 'PHP', 'C++'],
+  //       group: 'FEU 14',
+  //   },
+  // ]
 
-const studentForm = document.querySelector('#student-form')
-const studentsList = document.querySelector('#students-list')
+  const initialDataLocalStorage = JSON.parse(localStorage.getItem('students-data'))
+  const initialData = initialDataLocalStorage ? initialDataLocalStorage : []
 
-initialData.forEach(studentData => {
-  createStudentElement(studentData)
-})
+  initialData.forEach(studentData => {
+    createStudentElement(studentData)
+  })
+
+  const studentForm = document.querySelector('#student-form')
+
+  formDataInLocalStorage(studentForm)
+  itKnowledgeHandler(studentForm)
+
+  studentForm.addEventListener('submit', studentFormHandler)
+}
+
+init()
+
+function studentFormHandler(event) {
+  event.preventDefault()
+
+  const form = event.target
+
+  const formIsValid = validateForm(form)
+
+  if (!formIsValid) {
+    alertMessage('Form is invalid', 'alert-danger')
+
+    return
+  }
+
+  const name = form.name.value
+  const surname = form.surname.value
+  const age = form.age.value
+  const phone = form.phone.value
+  const email = form.email.value
+  const itKnowledge = form['it-knowledge'].value
+  const group = form.group.value
+  const interests = form.querySelectorAll('input[name="interests"]:checked')
+
+  // SPREAD OPERATOR
+  const interestsData = [...interests].map(interest => interest.value)
+
+  const newStudentData = {
+    id: Math.random(),
+    name,
+    surname,
+    age,
+    phone,
+    email,
+    itKnowledge,
+    interests: interestsData,
+    group,
+  }
+
+  createStudentElement(newStudentData)
+
+  const studentsListLocalStorage = JSON.parse(localStorage.getItem('students-data'))
+  const studentsListData = studentsListLocalStorage ? studentsListLocalStorage : []
+
+  studentsListData.push(newStudentData)
+  localStorage.setItem('students-data', JSON.stringify(studentsListData))
+
+  form.reset()
+  itKnowledgeHandler(form)
+
+  const inputNames = getInputNames(form)
+  inputNames.forEach(name => localStorage.removeItem(name))
+
+  alertMessage(`Student (${name} ${surname}) was created!`, 'alert-success')
+}
 
 function createStudentElement(data) {
-  const { name, surname, age, phone, email, itKnowledge, group, interests } = data
+  const studentsList = document.querySelector('#students-list')
+
+  const { name, surname, age, phone, email, itKnowledge, group, interests, id } = data
 
   const studentItem = document.createElement('div')
   studentItem.classList.add('student-item')
@@ -143,6 +210,13 @@ function createStudentElement(data) {
   removeStudentButton.addEventListener('click', () => {
     studentItem.remove()
 
+    const studentsListData = JSON.parse(localStorage.getItem('students-data'))
+
+    if (studentsListData) {
+      const updatedStudentsList = studentsListData.filter(student => student.id !== id)
+      localStorage.setItem('students-data', JSON.stringify(updatedStudentsList))
+    }
+
     alertMessage(`Student (${name} ${surname}) was removed!`, 'alert-danger')
   })
 
@@ -150,91 +224,16 @@ function createStudentElement(data) {
   studentsList.prepend(studentItem)
 }
 
-formDataInLocalStorage(studentForm)
-
-const knowledgeInput = studentForm.querySelector('#it-knowledge')
-const knowledgeOutput = studentForm.querySelector('#it-knowledge-output')
-
-knowledgeOutput.textContent = knowledgeInput.value
-
-knowledgeInput.addEventListener('input', (event) => {
-  knowledgeOutput.textContent = event.target.value
-})
-
-studentForm.addEventListener('submit', (event) => {
-  event.preventDefault()
-
-  const form = event.target
-
-  const formIsValid = validateForm(form)
-
-  if (!formIsValid) {
-    alertMessage('Form is invalid', 'alert-danger')
-
-    return
-  }
-
-  const name = form.name.value
-  const surname = form.surname.value
-  const age = form.age.value
-  const phone = form.phone.value
-  const email = form.email.value
-  const itKnowledge = form['it-knowledge'].value
-  const group = form.group.value
-  const interests = form.querySelectorAll('input[name="interests"]:checked')
-
-  // const interestsData = []
-  // interests.forEach(interest => {
-  //   interestsData.push(interest.value)
-  // })
-
-  // const interestsArr = Array.from(interests)
-  // const interestsData = interestsArr.map(interest => interest.value)
-
-  // const interestsData = Array.from(interests).map(interest => interest.value)
-
-  // SPREAD OPERATOR
-  const interestsData = [...interests].map(interest => interest.value)
-
-  // const newStudentData = {
-  //   name: name,
-  //   surname: surname,
-  //   age: age,
-  //   phone: phone,
-  //   email: email,
-  //   itKnowledge: itKnowledge,
-  //   // interests: ['JavaScript', 'PHP', 'C++'],
-  //   interests: interests,
-  //   group: group,
-  // }
-
-  const newStudentData = {
-    name,
-    surname,
-    age,
-    phone,
-    email,
-    itKnowledge,
-    interests: interestsData,
-    group,
-  }
-
-  createStudentElement(newStudentData)
-
-  form.reset()
+function itKnowledgeHandler(form) {
+  const knowledgeInput = form.querySelector('#it-knowledge')
+  const knowledgeOutput = form.querySelector('#it-knowledge-output')
+  
   knowledgeOutput.textContent = knowledgeInput.value
-
-  localStorage.removeItem('student-name')
-  localStorage.removeItem('student-surname')
-  localStorage.removeItem('student-age')
-  localStorage.removeItem('student-phone')
-  localStorage.removeItem('student-email')
-  localStorage.removeItem('student-it-knowledge')
-  localStorage.removeItem('group')
-  localStorage.removeItem('interests')
-
-  alertMessage(`Student (${name} ${surname}) was created!`, 'alert-success')
-})
+  
+  knowledgeInput.addEventListener('input', (event) => {
+    knowledgeOutput.textContent = event.target.value
+  })
+}
 
 function alertMessage(text, className) {
   const alertMessage = document.querySelector('#alert-message')
@@ -320,69 +319,6 @@ function showInputError(input, errorText) {
   input.after(inputErrorMessage)
 }
 
-function inputDataLocalStorage(input) {
-  const key = input.name
-  const localStorageValue = JSON.parse(localStorage.getItem(key))
-
-  if (localStorageValue !== null) {
-
-    if (input.length > 0) {
-
-      console.log(input[0])
-      console.log(input[0].type)
-      console.log(localStorageValue)
-      
-      if (input[0].type === 'checkbox') {
-        localStorageValue.forEach(item => {
-          studentForm.querySelector(`[name="${key}"][value="${item}"]`).checked = true
-        })
-
-      }
-        
-    }
-
-    input.value = localStorageValue
-  }
-
-
-  if (input.length > 0) {
-    const inputType = input[0].type
-
-    if (inputType === 'radio') {
-      input.forEach(inputElement => {
-        inputElement.addEventListener('input', event => {
-          localStorage.setItem(key, JSON.stringify(event.target.value))
-        })
-      })
-
-      return
-    }
-    
-    if (inputType === 'checkbox') {
-
-      input.forEach(checkboxInput => {
-        checkboxInput.addEventListener('input', () => {
-          
-          const checkedInterestInputs = studentForm.querySelectorAll(`[name="${key}"]:checked`)
-    
-          const interestsData = [...checkedInterestInputs].map(interest => interest.value)
-    
-          localStorage.setItem(key, JSON.stringify(interestsData))
-        })
-      })
-
-      return
-    }
-
-    return
-  } 
-
-    
-  input.addEventListener('input', event => {
-    localStorage.setItem(key, JSON.stringify(event.target.value))
-  })
-}
-
 function formDataInLocalStorage(form) {
   form.addEventListener('input', (event) => {
     const input = event.target
@@ -400,20 +336,10 @@ function formDataInLocalStorage(form) {
     }
   })
 
-  // const inputNames = ['student-name', 'student-surname', 'student-age']
-
-  // inputNames.forEach(inputName => {
-  //   populateInputFromLocalStorage(inputName, form)
-  // })
-
-  populateInputFromLocalStorage('student-name', form)
-  populateInputFromLocalStorage('student-surname', form)
-  populateInputFromLocalStorage('student-age', form)
-  populateInputFromLocalStorage('student-phone', form)
-  populateInputFromLocalStorage('student-email', form)
-  populateInputFromLocalStorage('student-it-knowledge', form)
-  populateInputFromLocalStorage('group', form)
-  populateInputFromLocalStorage('interests', form)
+  const inputNames = getInputNames(form)
+  inputNames.forEach(name => {
+    populateInputFromLocalStorage(name, form)
+  })
 }
 
 function populateInputFromLocalStorage(key, form) {
@@ -429,4 +355,19 @@ function populateInputFromLocalStorage(key, form) {
       input.value = localStorageValue
     }
   }
+}
+
+function getInputNames(form) {
+  const formInputs = form.elements
+  const inputNames = []
+
+  for (input of formInputs) {
+    const name = input.name
+
+    if (name && !inputNames.includes(name)) {
+      inputNames.push(name)
+    }
+  }
+
+  return inputNames
 }
