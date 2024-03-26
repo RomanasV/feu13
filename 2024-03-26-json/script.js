@@ -83,41 +83,67 @@ fetch('movies.json')
   .then(response => response.json())
   .then(movies => {
     const moviesList = document.querySelector('#movies-list')
-    console.log(movies)
 
     movies.forEach(movie => {
       const movieItem = document.createElement('div')
       movieItem.classList.add('movie-item')
       moviesList.append(movieItem)
 
-      console.log(movie)
-      console.log(movie.title)
-
       const titleElement = document.createElement('h2')
-      titleElement.textContent = movie.title
+      titleElement.textContent = `${movie.title} (${movie.releaseDate})`
       movieItem.append(titleElement)
 
-      console.log(movie.releaseDate)
-      console.log(movie.description)
+      const rankingElement = document.createElement('span')
+      rankingElement.textContent = `${movie.ranking.average} (${movie.ranking.total})`
+      movieItem.append(rankingElement)
 
-      console.log(movie.ranking)
-      console.log(movie.ranking.average)
-      console.log(movie.ranking.total)
+      const descriptionElement = document.createElement('p')
+      descriptionElement.textContent = movie.description
+      movieItem.append(descriptionElement)
 
-      console.log(movie.genres)
+      const genresWrapper = document.createElement('div')
+      movieItem.append(genresWrapper)
+      const genresTitle = document.createElement('h3')
+      genresTitle.textContent = 'Genres:'
+      genresWrapper.append(genresTitle)
+
+      const genresList = document.createElement('ul')
+      genresWrapper.append(genresList)
+
       movie.genres.forEach(genre => {
-        console.log(genre)
+        const genreItem = document.createElement('li')
+        genreItem.textContent = genre
+        genresList.append(genreItem)
       })
 
-      console.log(movie.directors)
+      const directorsWrapper = document.createElement('div')
+      movieItem.append(directorsWrapper)
+      const directorsTitle = document.createElement('h3')
+      directorsTitle.textContent = 'Directors:'
+      directorsWrapper.append(directorsTitle)
+
+      const directorsList = document.createElement('ul')
+      directorsWrapper.append(directorsList)
+
       movie.directors.forEach(director => {
-        console.log(director)
+        const directorItem = document.createElement('li')
+        directorItem.textContent = director
+        directorsList.append(directorItem)
       })
 
-      console.log(movie.actors)
+      const actorsWrapper = document.createElement('div')
+      movieItem.append(actorsWrapper)
+      const actorsTitle = document.createElement('h3')
+      actorsTitle.textContent = 'Actors:'
+      actorsWrapper.append(actorsTitle)
+
+      const actorsList = document.createElement('ul')
+      actorsWrapper.append(actorsList)
+
       movie.actors.forEach(actor => {
-        console.log(actor)
+        const actorItem = document.createElement('li')
+        actorItem.textContent = actor
+        actorsList.append(actorItem)
       })
-
     })
   })
