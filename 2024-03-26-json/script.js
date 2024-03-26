@@ -1,3 +1,5 @@
+console.groupCollapsed('JSON basics')
+
 const obj = {
   name: 'John',
   age: 28, 
@@ -60,17 +62,62 @@ console.log(convertedJson)
 // console.log(str)
 
 
-fetch('obj.json')
+// fetch('obj.json')
+//   .then(response => response.json())
+//   .then(obj => {
+
+//     console.log(obj)
+//     console.log(obj.name)
+//     console.log(obj.age)
+//     console.log(obj.children)
+
+//     const title = document.createElement('h1')
+//     title.textContent = obj.name
+//     document.body.prepend(title)
+
+//   })
+
+console.groupEnd()
+
+fetch('movies.json')
   .then(response => response.json())
-  .then(obj => {
+  .then(movies => {
+    const moviesList = document.querySelector('#movies-list')
+    console.log(movies)
 
-    console.log(obj)
-    console.log(obj.name)
-    console.log(obj.age)
-    console.log(obj.children)
+    movies.forEach(movie => {
+      const movieItem = document.createElement('div')
+      movieItem.classList.add('movie-item')
+      moviesList.append(movieItem)
 
-    const title = document.createElement('h1')
-    title.textContent = obj.name
-    document.body.prepend(title)
+      console.log(movie)
+      console.log(movie.title)
 
+      const titleElement = document.createElement('h2')
+      titleElement.textContent = movie.title
+      movieItem.append(titleElement)
+
+      console.log(movie.releaseDate)
+      console.log(movie.description)
+
+      console.log(movie.ranking)
+      console.log(movie.ranking.average)
+      console.log(movie.ranking.total)
+
+      console.log(movie.genres)
+      movie.genres.forEach(genre => {
+        console.log(genre)
+      })
+
+      console.log(movie.directors)
+      movie.directors.forEach(director => {
+        console.log(director)
+      })
+
+      console.log(movie.actors)
+      movie.actors.forEach(actor => {
+        console.log(actor)
+      })
+
+    })
   })

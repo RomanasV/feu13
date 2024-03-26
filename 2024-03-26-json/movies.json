@@ -1,8 +1,223 @@
 [
   {
-    "title": "asdasd"
+    "title": "The Lord of the Rings: The Return of the King",
+    "ranking": {
+      "average": 9,
+      "total": 2000000
+    },
+    "releaseDate": 2003,
+    "description": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
+    "genres": [
+      "action",
+      "adventure",
+      "Drama"
+    ],
+    "directors": [
+      "Peter Jackson"
+    ],
+    "actors": [
+      "Elijah Wood",
+      "Viggo Mortensen",
+      "Ian McKellen"
+    ]
   },
   {
-    "title": "asdasd 2"
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "ranking": {
+      "average": 8.9,
+      "total": 2000000
+    },
+    "releaseDate": 2001,
+    "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+    "genres": [
+      "action",
+      "adventure",
+      "Drama"
+    ],
+    "directors": [
+      "Peter Jackson"
+    ],
+    "actors": [
+      "Elijah Wood",
+      "Orlando Bloom",
+      "Ian McKellen"
+    ]
+  },
+  {
+    "title": "The Matrix",
+    "ranking": {
+      "average": 8.7,
+      "total": 2000000
+    },
+    "releaseDate": 1999,
+    "description": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "directors": [
+      "Lana Wachowski",
+      "Lilly Wachowski"
+    ],
+    "actors": [
+      "Keanu Reeves",
+      "Laurence Fishburne",
+      "Carrie-Anne Moss"
+    ]
+  },
+  {
+    "title": "The Green Mile",
+    "ranking": {
+      "average": 8.6,
+      "total": 1400000
+    },
+    "releaseDate": 1999,
+    "description": "A tale set on death row, where gentle giant John Coffey possesses the mysterious power to heal people's ailments. When the lead guard, Paul Edgecombe, recognizes John's gift, he tries to help stave off the condemned man's execution.",
+    "genres": [
+      "Crime",
+      "Drama",
+      "Fantasy"
+    ],
+    "directors": [
+      "Frank Darabont"
+    ],
+    "actors": [
+      "Tom Hanks",
+      "Michael Clarke Duncan",
+      "David Morse"
+    ]
+  },
+  {
+    "title": "Terminator 2: Judgement Day",
+    "ranking": {
+      "average": 8.6,
+      "total": 1200000
+    },
+    "releaseDate": 1991,
+    "description": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son John from an even more advanced and powerful cyborg.",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "directors": [
+      "James Cameron"
+    ],
+    "actors": [
+      "Arnold Schwarzenegger",
+      "Linda Hamilton",
+      "Edward Furlong"
+    ]
+  },
+  {
+    "title": "Gladiator",
+    "ranking": {
+      "average": 8.5,
+      "total": 1600000
+    },
+    "releaseDate": 2000,
+    "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Drama"
+    ],
+    "directors": [
+      "Ridley Scott"
+    ],
+    "actors": [
+      "Russell Crowe",
+      "Joaquin Phoenix",
+      "Connie Nielsen"
+    ]
+  },
+  {
+    "title": "Spider-Man: Into the Spider-Verse",
+    "ranking": {
+      "average": 8.4,
+      "total": 666000
+    },
+    "releaseDate": 2018,
+    "description": "Teen Miles Morales becomes the Spider-Man of his universe and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.",
+    "genres": [
+      "Animation",
+      "Action",
+      "Adventure"
+    ],
+    "directors": [
+      "Bob Persichetti",
+      "Peter Ramsey",
+      "Rodney Rothman"
+    ],
+    "actors": [
+      "Shameik Moore",
+      "Jake Johnson",
+      "Hailee Steinfeld"
+    ]
+  },
+  {
+    "title": "Joker",
+    "ranking": {
+      "average": 8.4,
+      "total": 1500000
+    },
+    "releaseDate": 2019,
+    "description": "During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.",
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "directors": [
+      "Todd Phillips"
+    ],
+    "actors": [
+      "Joaquin Phoenix",
+      "Robert De Niro",
+      "Zazie Beetz"
+    ]
+  },
+  {
+    "title": "Mad Max: Fury Road",
+    "ranking": {
+      "average": 8.1,
+      "total": 1100000
+    },
+    "releaseDate": 2015,
+    "description": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshiper and a drifter named Max.",
+    "genres": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "directors": [
+      "George Miller"
+    ],
+    "actors": [
+      "Tom Hardy",
+      "Charlize Theron",
+      "Nicholas Hoult"
+    ]
+  },
+  {
+    "title": "ndiana Jones and the Last Crusade",
+    "ranking": {
+      "average": 8.2,
+      "total": 808000
+    },
+    "releaseDate": 1989,
+    "description": "In 1938, after his father goes missing while pursuing the Holy Grail, Indiana Jones finds himself up against the Nazis again to stop them from obtaining its powers.",
+    "genres": [
+      "Action",
+      "Adventure"
+    ],
+    "directors": [
+      "Steven Spielberg"
+    ],
+    "actors": [
+      "Harrison Ford",
+      "Sean Connery",
+      "Alison Doody"
+    ]
   }
 ]
