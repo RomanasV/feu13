@@ -9,23 +9,67 @@ function init() {
       submitButton.setAttribute('disabled', true)
 
       const breeds = data.message
-
+      
       // PIRMAS BŪDAS
-      // for (let breed in breeds) {
-      //   const breedOption = document.createElement('option')
-      //   breedOption.textContent = breed
+      // for (let mainBreed in breeds) {
+        // const subBreeds = breeds[mainBreed]
 
-      //   breedsSelect.append(breedOption)
+        // if (subBreeds.length > 0) {
+        //   subBreeds.forEach(subBreed => {
+        //     const breedOption = document.createElement('option')
+        //     breedOption.textContent = `${mainBreed} (${subBreed})`
+        //     breedsSelect.append(breedOption)
+        //   })
+
+        // } else {
+        //   const breedOption = document.createElement('option')
+        //   breedOption.textContent = mainBreed
+          
+        //   breedsSelect.append(breedOption)
+        // }
       // }
 
       // ANTRAS BŪDAS
-      const mainBreeds = Object.keys(breeds)
+      // const mainBreeds = Object.keys(breeds)
 
-      mainBreeds.forEach(breed => {
-        const breedOption = document.createElement('option')
-        breedOption.textContent = breed
+      // mainBreeds.forEach(mainBreed => {
+      //   const subBreeds = breeds[mainBreed]
 
-        breedsSelect.append(breedOption)
+      //   if (subBreeds.length > 0) {
+      //     subBreeds.forEach(subBreed => {
+      //       const breedOption = document.createElement('option')
+      //       breedOption.textContent = `${mainBreed} (${subBreed})`
+      //       breedsSelect.append(breedOption)
+      //     })
+
+      //   } else {
+      //     const breedOption = document.createElement('option')
+      //     breedOption.textContent = mainBreed
+          
+      //     breedsSelect.append(breedOption)
+      //   }
+      // })
+
+      // TREČIAS BŪDAS
+      const breedEntries = Object.entries(breeds)
+
+      breedEntries.forEach(entry => {
+        const mainBreed = entry[0]
+        const subBreeds = entry[1]
+
+        if (subBreeds.length > 0) {
+          subBreeds.forEach(subBreed => {
+            const breedOption = document.createElement('option')
+            breedOption.textContent = `${mainBreed} (${subBreed})`
+            breedsSelect.append(breedOption)
+          })
+
+        } else {
+          const breedOption = document.createElement('option')
+          breedOption.textContent = mainBreed
+          
+          breedsSelect.append(breedOption)
+        }
       })
 
       submitButton.removeAttribute('disabled')
