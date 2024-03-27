@@ -61,12 +61,14 @@ function init() {
           subBreeds.forEach(subBreed => {
             const breedOption = document.createElement('option')
             breedOption.textContent = `${mainBreed} (${subBreed})`
+            breedOption.value = `${mainBreed}/${subBreed}`
             breedsSelect.append(breedOption)
           })
 
         } else {
           const breedOption = document.createElement('option')
           breedOption.textContent = mainBreed
+          breedOption.value = mainBreed
           
           breedsSelect.append(breedOption)
         }
@@ -79,6 +81,10 @@ function init() {
         submitButton.setAttribute('disabled', true)
 
         const selectedBreed = event.target.breed.value
+
+        console.log(selectedBreed)
+        console.log(`https://dog.ceo/api/breed/${selectedBreed}/images/random`)
+        console.log(`https://dog.ceo/api/breed/hound/afghan/images/random`)
 
         fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random`)
           .then(res => res.json())

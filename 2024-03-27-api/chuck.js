@@ -35,7 +35,8 @@ function getJokeByCategory() {
 
       categories.forEach(category => {
         const categoryOptionElement = document.createElement('option')
-        categoryOptionElement.textContent = category
+        categoryOptionElement.textContent = '- ' + category
+        categoryOptionElement.value = category
         
         selectElement.append(categoryOptionElement)
       })
