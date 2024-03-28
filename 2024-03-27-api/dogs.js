@@ -82,10 +82,6 @@ function init() {
 
         const selectedBreed = event.target.breed.value
 
-        console.log(selectedBreed)
-        console.log(`https://dog.ceo/api/breed/${selectedBreed}/images/random`)
-        console.log(`https://dog.ceo/api/breed/hound/afghan/images/random`)
-
         fetch(`https://dog.ceo/api/breed/${selectedBreed}/images/random`)
           .then(res => res.json())
           .then(data => {
