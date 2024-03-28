@@ -47,25 +47,61 @@
 //   })
 // }
 
-async function init() {
-  const resultParagraph = document.querySelector('#result')
-  const name = 'John'
+function init() {
+  const nameForm = document.querySelector('#name-form')
 
-  const ageRes = await fetch('https://api.agify.io?name=' + name)
-  const ageData = await ageRes.json()
+  // nameForm.addEventListener('submit', async event => {
+  //   event.preventDefault()
 
-  const countryRes = await fetch('https://api.nationalize.io/?name=' + name)
-  const countryData = await countryRes.json()
+  //   const name = event.target.name.value
   
-  const genderRes = await fetch('https://api.genderize.io?name=' + name)
-  const genderData = await genderRes.json()
+  //   const age = await getAgeByName(name)
+  //   const country = await getCountryByName(name)
+  //   const gender = await getGenderByName(name)
+    
+  //   const result = `${name} is a ${gender}, ${age} years old from ${country}.`
+    
+  //   const resultParagraph = document.querySelector('#result')
+  //   resultParagraph.textContent = result
+  // })
 
-  const age = ageData.age
-  const country = countryData.country[0].country_id
-  const gender = genderData.gender
-  
-  const result = `${name} is a ${gender}, ${age} years old from ${country}.`
-  resultParagraph.textContent = result
+  nameForm.addEventListener('submit', nameFormSubmit)
 }
 
 init()
+
+async function nameFormSubmit(event) {
+  event.preventDefault()
+
+  const name = event.target.name.value
+
+  const age = await getAgeByName(name)
+  const country = await getCountryByName(name)
+  const gender = await getGenderByName(name)
+  
+  const result = `${name} is a ${gender}, ${age} years old from ${country}.`
+  
+  const resultParagraph = document.querySelector('#result')
+  resultParagraph.textContent = result
+}
+
+async function getAgeByName(name) {
+  const res = await fetch('https://api.agify.io?name=' + name)
+  const data = await res.json()
+  const age = data.age
+  return age
+}
+
+async function getCountryByName(name) {
+  const res = await fetch('https://api.nationalize.io/?name=' + name)
+  const data = await res.json()
+  const country = data.country[0].country_id
+  return country
+}
+
+async function getGenderByName(name) {
+  const res = await fetch('https://api.genderize.io?name=' + name)
+  const data = await res.json()
+  const gender = data.gender
+  return gender
+}
