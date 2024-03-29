@@ -1,3 +1,6 @@
+import { BUTTON_TEXT, LABEL_NAME, getAgeByName, getCountryByName, getGenderByName } from './functions.js'
+import nameOutput from './nameOutput.js'
+
 // function init() {
 //   const resultParagraph = document.querySelector('#result')
 //   const name = 'John'
@@ -49,6 +52,11 @@
 
 function init() {
   const nameForm = document.querySelector('#name-form')
+  const label = nameForm.querySelector('label')
+  label.textContent = LABEL_NAME
+
+  const submitButton = nameForm.querySelector('input[type="submit"]')
+  submitButton.value = BUTTON_TEXT
 
   // nameForm.addEventListener('submit', async event => {
   //   event.preventDefault()
@@ -79,29 +87,7 @@ async function nameFormSubmit(event) {
   const country = await getCountryByName(name)
   const gender = await getGenderByName(name)
   
-  const result = `${name} is a ${gender}, ${age} years old from ${country}.`
-  
-  const resultParagraph = document.querySelector('#result')
-  resultParagraph.textContent = result
-}
+  const resultParagraph = nameOutput(name, age, country, gender)
 
-async function getAgeByName(name) {
-  const res = await fetch('https://api.agify.io?name=' + name)
-  const data = await res.json()
-  const age = data.age
-  return age
-}
-
-async function getCountryByName(name) {
-  const res = await fetch('https://api.nationalize.io/?name=' + name)
-  const data = await res.json()
-  const country = data.country[0].country_id
-  return country
-}
-
-async function getGenderByName(name) {
-  const res = await fetch('https://api.genderize.io?name=' + name)
-  const data = await res.json()
-  const gender = data.gender
-  return gender
+  event.target.after(resultParagraph)
 }
