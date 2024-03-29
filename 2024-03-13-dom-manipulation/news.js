@@ -79,7 +79,6 @@ function init() {
 
 init()
 
-
 function createVideoElement(iframe, title) {
   if (!iframe) {
     return ''

@@ -1,3 +1,5 @@
+import createElement from './createElement.js'
+
 export default function createNewsItem(data) {
   // let url = data.url
   // let title = data.title
