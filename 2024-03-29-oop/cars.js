@@ -10,12 +10,14 @@
 //        5.5. Jeigu rida daugiau nei 400000, tai kaina sumažėja 50%.
 
 class Car {
-  constructor(brand, model, engine, basePrice, mileage) {
+  constructor(brand, model, engine, basePrice, mileage, color = 'black') {
     this.brand = brand
     this.model = model
     this.engine = engine
     this.basePrice = basePrice
     this.mileage = mileage
+    this.baseColors = ['black', 'red', 'blue', 'silver', 'white', 'special blue']
+    this.color = color
   }
 
   turnOn() {
@@ -26,10 +28,11 @@ class Car {
     const basePrice = this.basePrice
 
     const enginePrice = this.getEnginePrice()
+    const colorPrice = this.getColorPrice()
     
     const mileageDiscount = this.getMileageDiscount()
 
-    return basePrice + enginePrice - mileageDiscount
+    return basePrice + enginePrice + colorPrice - mileageDiscount
   }
 
   getEnginePrice() {
@@ -43,6 +46,13 @@ class Car {
       return 5000
     }
 
+    return 0
+  }
+
+  getColorPrice() {
+    console.log(this.baseColors)
+    console.log(this.color)
+  
     return 0
   }
 
@@ -81,9 +91,11 @@ class Car {
   }
 }
 
-const car1 = new Car('Toyota', 'Prius', 'petrol', 10000, 0)
+const car1 = new Car('Toyota', 'Prius', 'petrol', 10000, 0, 'white')
 
 console.log(car1)
 
 console.log(car1.getPrice())
 console.log(car1.getDiscount(10))
+
+car1.getColorPrice()
