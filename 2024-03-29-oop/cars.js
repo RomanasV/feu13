@@ -23,24 +23,67 @@ class Car {
   }
 
   getPrice() {
-    console.log(this.basePrice)
-    console.log(this.engine)
-    console.log(this.mileage)
+    const basePrice = this.basePrice
 
-    return 10000
+    const enginePrice = this.getEnginePrice()
+    
+    const mileageDiscount = this.getMileageDiscount()
+
+    return basePrice + enginePrice - mileageDiscount
+  }
+
+  getEnginePrice() {
+    const engine = this.engine
+
+    if (engine === 'electric') {
+      return 10000
+    } 
+    
+    if (engine === 'diesel') {
+      return 5000
+    }
+
+    return 0
+  }
+
+  getMileageDiscount() {
+    const basePrice = this.basePrice
+    const mileage = this.mileage
+
+    if (mileage === 0) {
+      return basePrice / 100 * 0
+    } 
+    
+    if (mileage < 20000) {
+      return basePrice / 100 * 10
+    } 
+    
+    if (mileage < 50000) {
+      return basePrice / 100 * 15
+    } 
+    
+    if (mileage < 100000) {
+      return basePrice / 100 * 20
+    } 
+    
+    if (mileage < 400000) {
+      return basePrice / 100 * 30
+    } 
+    
+    return basePrice / 100 * 50
   }
 
   getDiscount(discount) {
-    console.log(discount)
-    console.log(this.basePrice)
-    console.log(this.getPrice())
+    const price = this.getPrice()
+
+    const priceAfterDiscount = price - (price / 100 * discount)
+    return priceAfterDiscount
   }
 }
 
-const car1 = new Car('Toyota', 'Prius', 'electric', 10000, 40000)
+const car1 = new Car('Toyota', 'Prius', 'petrol', 10000, 0)
 
 console.log(car1)
 
-car1.getPrice()
-car1.getDiscount(15)
-
+console.log(car1.getPrice())
+console.log(car1.getDiscount(10))
